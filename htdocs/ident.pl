@@ -23,9 +23,11 @@ print $cgi->start_html(-title => '2ちゃんねる スレッド一覧', -lang =>
 
 my $user_name = $cgi_session->param('user_name');
 if($user_name eq "") {
+	print "セッションに登録されていません<br>\n";
 	$user_name = $cgi->param('user_name');
 	$user_pass = $cgi->param('user_pass');
 	if($user_name eq "") {
+		print "認証が行われていません<br>\n";
 		print $cgi->start_form("post","ident.pl");
 	#	print "<form action=\"ident.pl\" method=\"post\">\n";
 		print "<table>\n";
@@ -49,14 +51,17 @@ if($user_name eq "") {
 	#	print "</form>\n";
 		print $cgi->end_form;
 	} else {
+		print "認証が行われています<br>\n";
 		print "User Name     : " . $user_name . "<br>\n";
 		print "User Password : " . $user_pass . "<br>\n";
 		if($user_name eq $user_pass){
+			print "セッションに登録します<br>\n";
 			$cgi_session->param('user_name', $user_name);
 		}
 	}
 } else {
-	print "User Name(2) : " . $user_name . "<br>\n";
+	print "セッションに登録されています<br>\n";
+	print "User Name : " . $user_name . "<br>\n";
 }
 print "<a href=\"http://dgsrv04.dias.local/get2ch/ident.pl\">再表示</a>\n";
 
