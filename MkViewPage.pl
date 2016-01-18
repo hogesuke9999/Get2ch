@@ -19,5 +19,7 @@ print $cgi->start_html(-title => '2ちゃんねる スレッド一覧', -lang =>
 # level 1 header
 print $cgi->h1('2ちゃんねる スレッド一覧');
 
+print "本文\n"
+
 # end the HTML
 print $cgi->end_html;
