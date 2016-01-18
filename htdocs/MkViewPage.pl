@@ -54,7 +54,7 @@ my $sql = "select subjects.id, subjects.tag, subjects.subject
 		ON subjects.id = checkflag.subjects_id
 		and checkflag.users_id = '" . $remote_user_id . "'
 		where checkflag.flag is NULL
-		limit 20;";
+		order by datetime limit 20;";
 my $sth = $db->prepare($sql);
 $sth->execute;
 
@@ -63,9 +63,10 @@ while (my $arr_ref = $sth->fetchrow_arrayref) {
 	print "<tr>\n";
 	print "<td>" . $TABLE_id . "</td><td>" . $TABLE_subject . "</td>\n";
 	print "</tr>\n";
-#	my $sql_w = "insert into checkflag (subjects_id, subjects_tag, users_id, flag, checkdate)
-#		     values('" . $TABLE_id . "', '" . $TABLE_tag . "', '" . $user_id . "', '1', now());";
-#	$db->do($sql_w);
+
+	my $sql_w = "insert into checkflag (subjects_id, subjects_tag, users_id, flag, checkdate)
+		     values('" . $TABLE_id . "', '" . $TABLE_tag . "', '" . $remote_user_id . "', '1', now());";
+	$db->do($sql_w);
 }
 $sth->finish;
 
