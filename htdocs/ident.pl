@@ -21,7 +21,7 @@ print $cgi->header('text/html' -charset => "utf-8",);
 # start the HTML
 print $cgi->start_html(-title => '2ちゃんねる スレッド一覧', -lang => 'ja', -encoding => 'utf-8');
 
-print "<form action=\"ident.pl\" method=\"post\">"
+print "<form action=\"ident.pl\" method=\"post\">";
 print "<table>\n";
 print "<tr>\n";
 print "<td>" . "User Name : " . "</td>" . "<tr>" . "<input type=\"text\" name=\"user_name\" size=\"16\">" . "</tr>\n";
