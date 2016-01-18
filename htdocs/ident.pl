@@ -21,7 +21,7 @@ print $cgi->header('text/html' -charset => "utf-8",);
 # start the HTML
 print $cgi->start_html(-title => '2ちゃんねる スレッド一覧', -lang => 'ja', -encoding => 'utf-8');
 
-my $user_name = $session->param('user_name');
+my $user_name = $cgi_session->param('user_name');
 if($user_name eq "") {
 	$user_name = $cgi->param('user_name');
 	$user_pass = $cgi->param('user_pass');
@@ -52,7 +52,7 @@ if($user_name eq "") {
 		print "User Name     : " . $user_name . "<br>\n";
 		print "User Password : " . $user_pass . "<br>\n";
 		if($user_name eq $user_pass){
-			$session->param('user_name', $user_name);
+			$cgi_session->param('user_name', $user_name);
 		}
 	}
 } else {
