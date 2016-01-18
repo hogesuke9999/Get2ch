@@ -28,10 +28,10 @@ print "ユーザ名 : " . $remote_user . "<br>\n";
 print "\n";
 
 print "<table border='1'>\n";
-	print "<th>\n";
-		print "<td>ID</td>\n";
-		print "<td>スレッド</td>\n";
-	print "</th>\n";
+	print "<tr>\n";
+		print "<th>ID</th>\n";
+		print "<th>スレッド</th>\n";
+	print "</tr>\n";
 print "</table>\n";
 
 # end the HTML
