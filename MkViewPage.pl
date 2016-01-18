@@ -14,10 +14,10 @@ print $cgi->charset("utf-8");
 print $cgi->header('text/html' -charset => "utf-8",);
 
 # start the HTML
-print $cgi->start_html(-lang => 'ja', -encoding => 'utf-8');
+print $cgi->start_html(-title => '2ちゃんねる スレッド一覧', -lang => 'ja', -encoding => 'utf-8');
 
 # level 1 header
-print $cgi->h1('hello world');
+print $cgi->h1('2ちゃんねる スレッド一覧');
 
 # end the HTML
 print $cgi->end_html;
