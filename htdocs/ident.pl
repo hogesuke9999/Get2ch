@@ -2,7 +2,7 @@
 
 # load CGI routines
 use CGI;
-# use CGI::Session;
+use CGI::Session;
 
 # create new CGI object
 my $cgi = CGI->new;
