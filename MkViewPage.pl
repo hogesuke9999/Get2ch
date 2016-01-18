@@ -6,16 +6,16 @@
 use CGI;
 
 # create new CGI object
-my $q = CGI->new;
+my $cgi = CGI->new;
 
 # create the HTTP header
-print $q->header('text/html');
+print $cgi->header('text/html');
 
 # start the HTML
-print $q->start_html('hello world');
+print $cgi->start_html('hello world' -lang => 'ja', -encoding => 'utf-8');
 
 # level 1 header
-print $q->h1('hello world');
+print $cgi->h1('hello world');
 
 # end the HTML
-print $q->end_html;
+print $cgi->end_html;
