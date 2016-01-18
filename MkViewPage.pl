@@ -9,7 +9,7 @@ use CGI;
 my $q = CGI->new;
 
 # create the HTTP header
-print $q->header();
+print $q->header('text/html');
 
 # start the HTML
 print $q->start_html('hello world');
