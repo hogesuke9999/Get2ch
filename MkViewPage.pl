@@ -19,14 +19,14 @@ print $cgi->start_html(-title => '2ちゃんねる スレッド一覧', -lang =>
 # level 1 header
 print $cgi->h1('2ちゃんねる スレッド一覧');
 
-print "\n"
+print "\n";
 
-print "<table>\n"
-	print "<th>\n"
-		print "<td>ID</td>\n"
-		print "<td>スレッド</td>\n"
-	print "</th>\n"
-print "</table>\n"
+print "<table>\n";
+	print "<th>\n";
+		print "<td>ID</td>\n";
+		print "<td>スレッド</td>\n";
+	print "</th>\n";
+print "</table>\n";
 
 # end the HTML
 print $cgi->end_html;
