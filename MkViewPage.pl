@@ -1,5 +1,7 @@
 #!/usr/bin/perl
 
+# スレッド一覧の表示用Webページ
+
 # load CGI routines
 use CGI;
 
