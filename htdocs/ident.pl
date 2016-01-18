@@ -6,6 +6,12 @@ use CGI;
 # create new CGI object
 my $cgi = CGI->new;
 
+# オブジェクトの初期化
+my $session = new CGI::Session("driver:File", undef, {Directory=>'/tmp'});
+
+# 有効なセッションIDを取得
+my $CGISESSID = $session->id();
+
 print $cgi->charset("utf-8");
 
 # create the HTTP header
