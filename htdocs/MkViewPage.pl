@@ -54,7 +54,7 @@ my $sql = "select subjects.id, subjects.tag, subjects.subject
 		ON subjects.id = checkflag.subjects_id
 		and checkflag.users_id = '" . $remote_user_id . "'
 		where checkflag.flag is NULL
-		order by datetime limit 20;";
+		order by datetime limit 15;";
 my $sth = $db->prepare($sql);
 $sth->execute;
 
