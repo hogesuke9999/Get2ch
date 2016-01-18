@@ -9,6 +9,7 @@ my $cgi = CGI->new;
 
 # オブジェクトの初期化
 my $cgi_session = new CGI::Session("driver:File", undef, {Directory=>'/tmp'});
+$session->expire("+1h");
 
 # # 有効なセッションIDを取得
 # my $cgi_session = $cgi_session->id();
