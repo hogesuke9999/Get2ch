@@ -9,7 +9,7 @@ use CGI;
 my $cgi = CGI->new;
 
 # create the HTTP header
-print $cgi->header('text/html');
+print $cgi->header('text/html' -charset => "utf-8");
 
 # start the HTML
 print $cgi->start_html('hello world' -lang => 'ja', -encoding => 'utf-8');
