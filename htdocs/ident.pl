@@ -23,7 +23,8 @@ print $cgi->start_html(-title => '2ちゃんねる スレッド一覧', -lang =>
 
 my $user_name = $session->param('user_name');
 if($user_name == "") {
-	print "<form action=\"ident.pl\" method=\"post\">\n";
+	print $cgi->start_form("post","ident.pl","utf-8");
+#	print "<form action=\"ident.pl\" method=\"post\">\n";
 	print "<table>\n";
 	print "<tr>\n";
 	print "<td>" . "User Name : " . "</td>" . "<td>" . "<input type=\"text\" name=\"user_name\" size=\"16\">" . "</td>\n";
@@ -33,9 +34,10 @@ if($user_name == "") {
 	print "</tr>\n";
 	print "</table>\n";
 	print "<input type=\"submit\" value=\"送信\">\n";
-	print "</form>\n";
+#	print "</form>\n";
+	print $cgi->end_form;
 } else {
-	print "User Name : " . $user_name . "<br>\n";	
+	print "User Name : " . $user_name . "<br>\n";
 }
 
 # end the HTML
