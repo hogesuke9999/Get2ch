@@ -8,6 +8,8 @@ use CGI;
 # create new CGI object
 my $cgi = CGI->new;
 
+print $cgi->charset("utf-8");
+
 # create the HTTP header
 print $cgi->header('text/html' -charset => "utf-8");
 
