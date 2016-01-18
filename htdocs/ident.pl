@@ -8,10 +8,10 @@ use CGI::Session;
 my $cgi = CGI->new;
 
 # オブジェクトの初期化
-my $session = new CGI::Session("driver:File", undef, {Directory=>'/tmp'});
+my $cgi_session = new CGI::Session("driver:File", undef, {Directory=>'/tmp'});
 
-# 有効なセッションIDを取得
-my $cgi_session = $session->id();
+# # 有効なセッションIDを取得
+# my $cgi_session = $cgi_session->id();
 
 print $cgi->charset("utf-8");
 
