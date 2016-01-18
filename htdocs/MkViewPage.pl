@@ -27,7 +27,7 @@ print "ユーザ名 : " . $remote_user . "<br>\n";
 
 print "\n";
 
-print "<table>\n";
+print "<table border='1'>\n";
 	print "<th>\n";
 		print "<td>ID</td>\n";
 		print "<td>スレッド</td>\n";
