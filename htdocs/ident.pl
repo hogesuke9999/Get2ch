@@ -24,6 +24,7 @@ print $cgi->start_html(-title => '2ちゃんねる スレッド一覧', -lang =>
 my $user_name = $session->param('user_name');
 if($user_name == "") {
 	$user_name = $cgi->param('user_name');
+	print "User Name : " . $user_name . "<br>\n";
 	if($user_name == "") {
 		print $cgi->start_form("post","ident.pl");
 	#	print "<form action=\"ident.pl\" method=\"post\">\n";
