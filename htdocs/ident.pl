@@ -51,6 +51,9 @@ if($user_name eq "") {
 	} else {
 		print "User Name     : " . $user_name . "<br>\n";
 		print "User Password : " . $user_pass . "<br>\n";
+		if($user_name eq $user_pass){
+			$session->param('user_name', $user_name);
+		}
 	}
 } else {
 	print "User Name(2) : " . $user_name . "<br>\n";
