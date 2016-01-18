@@ -1,0 +1,219 @@
+-D, --no-createdb
+    The new user will not be allowed to create databases. This is the default.
+-I, --no-inherit
+    The new role will not automatically inherit privileges of roles it is a member of.
+-P, --pwprompt
+    If given, createuser will issue a prompt for the password of the new user. This is not necessary if you do not plan on using password
+    authentication.
+-R, --no-createrole
+    The new user will not be allowed to create new roles. This is the default.
+-S, --no-superuser
+    The new user will not be a superuser. This is the default.
+
+-bash-4.2$ createuser --no-createdb --pwprompt --no-createrole --no-superuser get2ch
+新しいロールのためのパスワード: get2chpass
+もう一度入力してください： get2chpass
+
+-bash-4.2$ createdb --encoding=utf8 --owner=get2ch get2ch
+
+[admin@DGsrv04 Get2ch]$ psql -U get2ch -h 127.0.0.1 -W get2ch
+ユーザ get2ch のパスワード: get2chpass
+psql (9.2.14)
+"help" でヘルプを表示します.
+
+
+get2ch=>
+create table subjects (
+id bigint PRIMARY KEY,
+tag text,
+datetime timestamp,
+subject text
+);
+NOTICE:  CREATE TABLE / PRIMARY KEYはテーブル"subjects"に暗黙的なインデックス"subjects_pkey"を作成します
+CREATE TABLE
+
+
+get2ch=> select count(*) from subjects where id = '10';
+ count
+-------
+     0
+(1 行)
+
+get2ch=> insert into subjects (id, tag, subject) values ('10', 'test', 'test message 01');
+INSERT 0 1
+
+get2ch=> select count(*) from subjects where id = '10';
+ count
+-------
+     1
+(1 行)
+
+＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー
+
+get2ch=>
+create table users (
+id serial PRIMARY KEY,
+name text UNIQUE,
+password text UNIQUE,
+createdate timestamp
+);
+NOTICE:  CREATE TABLEはシリアル列"users.id"用に暗黙的なシーケンス"users_id_seq"を作成します。
+NOTICE:  CREATE TABLE / PRIMARY KEYはテーブル"users"に暗黙的なインデックス"users_pkey"を作成します
+NOTICE:  CREATE TABLE / UNIQUEはテーブル"users"に暗黙的なインデックス"users_name_key"を作成します
+NOTICE:  CREATE TABLE / UNIQUEはテーブル"users"に暗黙的なインデックス"users_password_key"を作成します
+CREATE TABLE
+
+insert into users (name, password, createdate) values ('user01', 'user01#pass', now());
+insert into users (name, password, createdate) values ('user02', 'user02#pass', now());
+insert into users (name, password, createdate) values ('user03', 'user03#pass', now());
+insert into users (name, password, createdate) values ('user04', 'user04#pass', now());
+
+＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー
+
+get2ch=>
+create table checkflag (
+subjects_id bigint,
+subjects_tag text,
+users_id integer,
+flag int,
+checkdate timestamp
+);
+CREATE TABLE
+
+select
+checkflag.flag,
+subjects.id,
+subjects.subject
+from subjects LEFT JOIN checkflag ON subjects.id = checkflag.subjects_id
+;
+
+
+insert into checkflag (subjects_id, subjects_tag, users_id, flag, checkdate) values('1452951947', '', '1', '1', now());
+
+
+get2ch=> select
+checkflag.flag,
+subjects.id,
+subjects.subject
+from subjects LEFT JOIN checkflag ON subjects.id = checkflag.subjects_id
+and checkflag.users_id = '1'
+where checkflag.flag is NULL
+;
+
+＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー
+
+get2ch=>
+create table testtable_list (
+id serial PRIMARY KEY,
+tag text
+);
+NOTICE:  CREATE TABLEはシリアル列"testtable_list.id"用に暗黙的なシーケンス"testtable_list_id_seq"を作成します。
+NOTICE:  CREATE TABLE / PRIMARY KEYはテーブル"testtable_list"に暗黙的なインデックス"testtable_list_pkey"を作成します
+CREATE TABLE
+
+get2ch=>
+create table testtable_flag (
+id int,
+userid int
+);
+CREATE TABLE
+
+insert into testtable_list (tag) values ('a');
+insert into testtable_list (tag) values ('b');
+insert into testtable_list (tag) values ('c');
+insert into testtable_list (tag) values ('d');
+insert into testtable_list (tag) values ('e');
+insert into testtable_list (tag) values ('f');
+
+insert into testtable_flag (id, userid) values ('1', '1');
+insert into testtable_flag (id, userid) values ('2', '1');
+insert into testtable_flag (id, userid) values ('3', '1');
+insert into testtable_flag (id, userid) values ('2', '2');
+insert into testtable_flag (id, userid) values ('3', '2');
+insert into testtable_flag (id, userid) values ('4', '2');
+
+get2ch=> select
+get2ch-> testtable_list.id,
+get2ch-> testtable_list.tag,
+get2ch-> testtable_flag.id,
+get2ch-> testtable_flag.userid
+get2ch-> from testtable_list LEFT JOIN testtable_flag ON
+get2ch-> testtable_list.id = testtable_flag.id
+get2ch-> ;
+ id | tag | id | userid
+----+-----+----+--------
+  1 | a   |  1 |      1
+  2 | b   |  2 |      1
+  3 | c   |  3 |      1
+  2 | b   |  2 |      2
+  3 | c   |  3 |      2
+  4 | d   |  4 |      2
+  5 | e   |    |
+  6 | f   |    |
+(8 行)
+
+get2ch=> select
+get2ch-> testtable_list.id,
+get2ch-> testtable_list.tag,
+get2ch-> testtable_flag.id,
+get2ch-> testtable_flag.userid
+get2ch-> from testtable_list LEFT JOIN testtable_flag ON
+get2ch-> testtable_list.id = testtable_flag.id
+get2ch-> and testtable_flag.userid = '1';
+ id | tag | id | userid
+----+-----+----+--------
+  1 | a   |  1 |      1
+  2 | b   |  2 |      1
+  3 | c   |  3 |      1
+  4 | d   |    |
+  5 | e   |    |
+  6 | f   |    |
+(6 行)
+
+get2ch=> select
+testtable_list.id,
+testtable_list.tag,
+testtable_flag.id,
+testtable_flag.userid
+from testtable_list LEFT JOIN testtable_flag ON
+testtable_list.id = testtable_flag.id
+and testtable_flag.userid = '1' where testtable_flag.userid is NULL ;
+ id | tag | id | userid
+----+-----+----+--------
+  4 | d   |    |
+  5 | e   |    |
+  6 | f   |    |
+(3 行)
+
+get2ch=> select
+testtable_list.id,
+testtable_list.tag,
+testtable_flag.id,
+testtable_flag.userid
+from testtable_list LEFT JOIN testtable_flag ON
+testtable_list.id = testtable_flag.id
+and testtable_flag.userid = '2';
+ id | tag | id | userid
+----+-----+----+--------
+  1 | a   |    |
+  2 | b   |  2 |      2
+  3 | c   |  3 |      2
+  4 | d   |  4 |      2
+  5 | e   |    |
+  6 | f   |    |
+(6 行)
+
+get2ch=> select
+testtable_list.id,
+testtable_list.tag,
+testtable_flag.id,
+testtable_flag.userid
+from testtable_list LEFT JOIN testtable_flag ON
+testtable_list.id = testtable_flag.id
+and testtable_flag.userid = '2' where testtable_flag.userid is NULL ;
+ id | tag | id | userid
+----+-----+----+--------
+  1 | a   |    |
+  5 | e   |    |
+  6 | f   |    |
+(3 行)
