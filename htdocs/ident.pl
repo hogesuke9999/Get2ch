@@ -23,14 +23,22 @@ print $cgi->start_html(-title => '2ちゃんねる スレッド一覧', -lang =>
 
 my $user_name = $session->param('user_name');
 if($user_name == "") {
-	print $cgi->start_form("post","ident.pl","utf-8");
+	print $cgi->start_form("post","ident.pl");
 #	print "<form action=\"ident.pl\" method=\"post\">\n";
 	print "<table>\n";
 	print "<tr>\n";
-	print "<td>" . "User Name : " . "</td>" . "<td>" . "<input type=\"text\" name=\"user_name\" size=\"16\">" . "</td>\n";
+	print "<td>" . "User Name : " . "</td>\n";
+	print "<td>";
+	print $cgi->textfield('user_name','',16,16);
+#	print "<input type=\"text\" name=\"user_name\" size=\"16\">";
+	print "</td>\n";
 	print "</tr>\n";
 	print "<tr>\n";
-	print "<td>" . "Password  : " . "</td>" . "<td>" . "<input type=\"text\" name=\"user_pass\" size=\"16\">" . "</td>\n";
+	print "<td>" . "Password  : " . "</td>\n";
+	print "<td>";
+	print $cgi->textfield('user_pass','',16,16);
+#	print "<input type=\"text\" name=\"user_pass\" size=\"16\">";
+	print "</td>\n";
 	print "</tr>\n";
 	print "</table>\n";
 	print "<input type=\"submit\" value=\"送信\">\n";
