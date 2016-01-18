@@ -41,16 +41,38 @@ $sth->finish;
 print $cgi->h1('2ちゃんねる スレッド一覧');
 
 print "\n";
-print "ユーザ名 : " . $remote_user . "(" . $remote_user_id . ")<br>\n";
-
-print "\n";
+print "ユーザ名 : " . $remote_user_name . "(" . $remote_user_id . ")<br>\n";
 
 print "<table border='1'>\n";
+print "<tr>\n";
+print "<th>ID</th>\n";
+print "<th>スレッド</th>\n";
+print "</tr>\n";
+
+my $sql = "select subjects.id, subjects.tag, subjects.subject
+		from subjects LEFT JOIN checkflag
+		ON subjects.id = checkflag.subjects_id
+		and checkflag.users_id = '" . $remote_user_id . "'
+		where checkflag.flag is NULL
+		limit 20;";
+my $sth = $db->prepare($sql);
+$sth->execute;
+
+while (my $arr_ref = $sth->fetchrow_arrayref) {
+	my ($TABLE_id, $TABLE_tag, $TABLE_subject) = @$arr_ref;
 	print "<tr>\n";
-		print "<th>ID</th>\n";
-		print "<th>スレッド</th>\n";
+	print "<td>" . $TABLE_id . "</td><td>" . $TABLE_subject . "</td>\n";
 	print "</tr>\n";
+#	my $sql_w = "insert into checkflag (subjects_id, subjects_tag, users_id, flag, checkdate)
+#		     values('" . $TABLE_id . "', '" . $TABLE_tag . "', '" . $user_id . "', '1', now());";
+#	$db->do($sql_w);
+}
+$sth->finish;
+
 print "</table>\n";
 
 # end the HTML
 print $cgi->end_html;
+
+
+$db->disconnect;
