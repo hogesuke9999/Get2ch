@@ -16,8 +16,14 @@ print $cgi->header('text/html' -charset => "utf-8",);
 # start the HTML
 print $cgi->start_html(-title => '2ちゃんねる スレッド一覧', -lang => 'ja', -encoding => 'utf-8');
 
+
+my $remote_user = $cgi->remote_user();
+
 # level 1 header
 print $cgi->h1('2ちゃんねる スレッド一覧');
+
+print "\n";
+print "ユーザ名 : " . $remote_user . "<br>\n";
 
 print "\n";
 
