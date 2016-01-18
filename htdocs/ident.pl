@@ -2,7 +2,7 @@
 
 # load CGI routines
 use CGI;
-use CGI::Session;
+# use CGI::Session;
 
 # create new CGI object
 my $cgi = CGI->new;
@@ -20,6 +20,17 @@ print $cgi->header('text/html' -charset => "utf-8",);
 
 # start the HTML
 print $cgi->start_html(-title => '2ちゃんねる スレッド一覧', -lang => 'ja', -encoding => 'utf-8');
+
+print "<form action=\"ident.pl\" method=\"post\">"
+print "<table>\n";
+print "<tr>\n";
+print "<td>" . "User Name : " . "</td>" . "<tr>" . "<input type="text" name="user_name" size=\"16\">" . "</tr>\n";
+print "</tr>\n";
+print "<tr>\n";
+print "<td>" . "Password  : " . "</td>" . "<tr>" . "<input type="text" name="user_pass" size=\"16\">" . "</tr>\n";
+print "</tr>\n";
+print "</table>\n";
+print "</form>\n";
 
 # end the HTML
 print $cgi->end_html;
