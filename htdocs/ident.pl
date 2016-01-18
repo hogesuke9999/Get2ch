@@ -58,6 +58,7 @@ if($user_name eq "") {
 } else {
 	print "User Name(2) : " . $user_name . "<br>\n";
 }
+print "<a href=\"http://dgsrv04.dias.local/get2ch/ident.pl\">再表示</a>\n";
 
 # end the HTML
 print $cgi->end_html;
