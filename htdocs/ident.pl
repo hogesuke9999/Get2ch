@@ -2,6 +2,7 @@
 
 # load CGI routines
 use CGI;
+use CGI::Session;
 
 # create new CGI object
 my $cgi = CGI->new;
@@ -10,7 +11,7 @@ my $cgi = CGI->new;
 my $session = new CGI::Session("driver:File", undef, {Directory=>'/tmp'});
 
 # 有効なセッションIDを取得
-my $CGISESSID = $session->id();
+my $cgi_session = $session->id();
 
 print $cgi->charset("utf-8");
 
