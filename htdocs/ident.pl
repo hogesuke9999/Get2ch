@@ -61,7 +61,7 @@ if($user_name eq "") {
 		if($user_name eq $user_pass){
 			print "セッションに登録します<br>\n";
 			$cgi_session->param("user_name", $user_name);
-#			$cgi_session->flush();
+			$cgi_session->flush();
 		}
 	}
 } else {
