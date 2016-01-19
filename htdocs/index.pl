@@ -25,6 +25,7 @@ print "ボタン : " . $button_name . "<br>\n";
 
 print $cgi->start_form("post", "index.pl");
 print $cgi->submit('button','送信');
+print $cgi->submit('button','ログアウト');
 print $cgi->end_form;
 
 print "<hr>\n";
