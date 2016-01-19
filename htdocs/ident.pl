@@ -4,12 +4,12 @@
 use CGI;
 use CGI::Session;
 
-# create new CGI object
-my $cgi = CGI->new;
-
 # オブジェクトの初期化
 my $cgi_session = new CGI::Session("driver:File", undef, {Directory=>'/tmp'});
 $cgi_session->expire("+1h");
+
+# create new CGI object
+my $cgi = CGI->new;
 
 # # 有効なセッションIDを取得
 # my $cgi_session = $cgi_session->id();
@@ -20,6 +20,7 @@ print $cgi->charset("utf-8");
 # print $cgi->header('text/html' -charset => "utf-8",);
 print $cgi_session->header(-charset => 'utf-8');
 print $cgi_session->id();
+
 
 # start the HTML
 print $cgi->start_html(-title => '2ちゃんねる スレッド一覧', -lang => 'ja', -encoding => 'utf-8');
