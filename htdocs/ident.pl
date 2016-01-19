@@ -19,12 +19,12 @@ print $cgi->charset("utf-8");
 # create the HTTP header
 # print $cgi->header('text/html' -charset => "utf-8",);
 print $cgi_session->header(-charset => 'utf-8');
-# print $cgi_session->id();
+print $cgi_session->id();
 
 # start the HTML
 print $cgi->start_html(-title => '2ちゃんねる スレッド一覧', -lang => 'ja', -encoding => 'utf-8');
 
-my $user_name = $cgi_session->param('user_name');
+my $user_name = $cgi_session->param("user_name");
 if($user_name eq "") {
 	print "セッションに登録されていません<br>\n";
 	$user_name = $cgi->param('user_name');
@@ -59,8 +59,8 @@ if($user_name eq "") {
 		print "User Password : " . $user_pass . "<br>\n";
 		if($user_name eq $user_pass){
 			print "セッションに登録します<br>\n";
-			$cgi_session->param('user_name', $user_name);
-			$cgi_session->flush();
+			$cgi_session->param("user_name", $user_name);
+#			$cgi_session->flush();
 		}
 	}
 } else {
