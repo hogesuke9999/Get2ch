@@ -43,6 +43,7 @@ if( $button_name eq "送信") {
 
 if( $button_name eq "ログアウト") {
         print "ログアウトしました<br>\n";
+        $cgi_session->delete();
 };
 
 $user_name = $cgi_session->param("user_name");
