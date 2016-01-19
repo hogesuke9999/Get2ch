@@ -23,7 +23,7 @@ print $cgi->header(
 );
 #print $cgi_session->header(-charset => 'utf-8');
 
-print $cgi_session->id();
+# print $cgi_session->id();
 
 
 # start the HTML
@@ -31,9 +31,10 @@ print $cgi->start_html(-title => '2ちゃんねる スレッド一覧', -lang =>
 
 my $user_name = $cgi_session->param("user_name");
 if($user_name eq "") {
-	print "セッションに登録されていません<br>\n";
+#	print "セッションに登録されていません<br>\n";
 	$user_name = $cgi->param('user_name');
 	$user_pass = $cgi->param('user_pass');
+
 	if($user_name eq "") {
 		print "認証が行われていません<br>\n";
 		print $cgi->start_form("post","ident.pl");
@@ -59,19 +60,21 @@ if($user_name eq "") {
 	#	print "</form>\n";
 		print $cgi->end_form;
 	} else {
-		print "認証が行われています<br>\n";
+#		print "認証が行われています<br>\n";
 		print "User Name     : " . $user_name . "<br>\n";
 		print "User Password : " . $user_pass . "<br>\n";
 		if($user_name eq $user_pass){
-			print "セッションに登録します<br>\n";
+#			print "セッションに登録します<br>\n";
 			$cgi_session->param("user_name", $user_name);
-			$cgi_session->flush();
+#			$cgi_session->flush();
 		}
 	}
 } else {
-	print "セッションに登録されています<br>\n";
+#	print "セッションに登録されています<br>\n";
+        print "認証済み<br>\n";
 	print "User Name : " . $user_name . "<br>\n";
 }
+print "<hr>\n";
 print "<a href=\"ident.pl\">再表示</a>\n";
 
 # end the HTML
