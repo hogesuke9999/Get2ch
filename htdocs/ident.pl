@@ -17,7 +17,7 @@ $cgi_session->expire("+1h");
 print $cgi->charset("utf-8");
 
 # create the HTTP header
-# print $cgi->header('text/html' -charset => "utf-8",);
+print $cgi->header('text/html' -charset => "utf-8",);
 print $cgi_session->header('text/html' -charset => 'utf-8');
 
 # start the HTML
@@ -65,7 +65,7 @@ if($user_name eq "") {
 	print "セッションに登録されています<br>\n";
 	print "User Name : " . $user_name . "<br>\n";
 }
-print "<a href=\"http://dgsrv04.dias.local/get2ch/ident.pl\">再表示</a>\n";
+print "<a href=\"ident.pl\">再表示</a>\n";
 
 # end the HTML
 print $cgi->end_html;
