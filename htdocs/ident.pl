@@ -17,7 +17,8 @@ $cgi_session->expire("+1h");
 print $cgi->charset("utf-8");
 
 # create the HTTP header
-print $cgi->header('text/html' -charset => "utf-8",);
+# print $cgi->header('text/html' -charset => "utf-8",);
+print $cgi_session->header('text/html' -charset => 'utf-8');
 
 # start the HTML
 print $cgi->start_html(-title => '2ちゃんねる スレッド一覧', -lang => 'ja', -encoding => 'utf-8');
