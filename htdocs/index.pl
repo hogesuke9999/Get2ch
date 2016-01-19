@@ -52,20 +52,31 @@ if( $button_name eq "ログアウト") {
 }
 
 if($login_flag == 0) {
-        print "<table>\n";
-        print "<tr>\n";
-        print "<td>" . "User Name : " . "</td>\n";
-        print "<td>";
-        print $cgi->textfield('user_name', '', 16, 16);
-        print "</td>\n";
-        print "</tr>\n";
-        print "<tr>\n";
-        print "<td>" . "Password : " . "</td>\n";
-        print "<td>";
-        print $cgi->textfield('user_pass', '', 16, 16);
-        print "</td>\n";
-        print "</tr>\n";
-        print "</table>\n";
+#        print "<table>\n";
+#        print "<tr>\n";
+#        print "<td>" . "User Name : " . "</td>\n";
+#        print "<td>";
+#        print $cgi->textfield('user_name', '', 16, 16);
+#        print "</td>\n";
+#        print "</tr>\n";
+#        print "<tr>\n";
+#        print "<td>" . "Password : " . "</td>\n";
+#        print "<td>";
+#        print $cgi->textfield('user_pass', '', 16, 16);
+#        print "</td>\n";
+#        print "</tr>\n";
+#        print "</table>\n";
+#        print $cgi->submit('button', '送信');
+        print $cgi->table({-border => "1"} .
+                $cgi -> tr(
+                        $cgi -> td("User Name : ") .
+                        $cgi -> td($cgi->textfield('user_name', '', 16, 16))
+                ) .
+                $cgi -> tr(
+                        $cgi -> td("Password : ") .
+                        $cgi -> td($cgi->textfield('user_pass', '', 16, 16))
+                )
+        );
         print $cgi->submit('button', '送信');
 }
 
@@ -73,7 +84,6 @@ print $cgi->end_form;
 
 print $cgi->hr . "\n";
 print $cgi->a({href=>"index.pl"}, "再表示");
-# print "<a href=\"index.pl\">再表示</a>\n";
 
 # end the HTML
 print $cgi->end_html;
