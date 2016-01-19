@@ -14,10 +14,10 @@ my $cgi = CGI->new;
 # # 有効なセッションIDを取得
 # my $cgi_session = $cgi_session->id();
 
-print $cgi->charset("utf-8");
+# print $cgi->charset("utf-8");
 
 # create the HTTP header
-print $cgi->header('text/html'
+print $cgi->header(
  -charset => "utf-8",
  -cookie => $cgi->cookie(-name=>'CGISESSID', -value=>$cgi_session->id())
 );
