@@ -17,7 +17,7 @@ my $cgi = CGI->new;
 print $cgi->charset("utf-8");
 
 # create the HTTP header
-print $cgi->header('text/html',
+print $cgi->header('text/html'
  -charset => "utf-8",
  -cookie => $cgi->cookie(-name=>'CGISESSID', -value=>$cgi_session->id())
 );
