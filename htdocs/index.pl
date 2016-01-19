@@ -4,6 +4,8 @@
 use CGI;
 use CGI::Session;
 
+my $user_name, $user_pass ;
+
 # オブジェクトの初期化
 my $cgi_session = new CGI::Session("driver:File", undef, {Directory=>'/tmp'});
 $cgi_session->expire("+1h");
@@ -21,9 +23,46 @@ print $cgi->header(
 print $cgi->start_html(-title => '2ちゃんねる スレッド一覧', -lang => 'ja', -encoding => 'utf-8');
 
 $button_name = $cgi->param('button');
-print "ボタン : " . $button_name . "<br>\n";
+# print "ボタン : " . $button_name . "<br>\n";
 
 print $cgi->start_form("post", "index.pl");
+
+# level 1 header
+print $cgi->h1('2ちゃんねる スレッド一覧');
+
+if( $button_name eq "送信") {
+        $user_name = $cgi->param('user_name');
+        $user_pass = $cgi->param('user_pass');
+
+#        print "User Name     : " . $user_name . "<br>\n";
+#        print "User Password : " . $user_pass . "<br>\n";
+        if($user_name eq $user_pass){
+                $cgi_session->param("user_name", $user_name);
+        }
+}
+
+if( $button_name eq "ログアウト") {
+        print "ログアウトしました<br>\n";
+};
+
+$user_name = $cgi_session->param("user_name");
+if($user_name eq "") {
+        print "<table>\n";
+        print "<tr>\n";
+        print "<td>" . "User Name : " . "</td>\n";
+        print "<td>";
+        print $cgi->textfield('user_name','',16,16);
+        print "</td>\n";
+        print "</tr>\n";
+        print "<tr>\n";
+        print "<td>" . "Password : " . "</td>\n";
+        print "<td>";
+        print $cgi->textfield('user_pass','',16,16);
+        print "</td>\n";
+        print "</tr>\n";
+        print "</table>\n";
+}
+
 print $cgi->submit('button','送信');
 print $cgi->submit('button','ログアウト');
 print $cgi->end_form;
