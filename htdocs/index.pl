@@ -67,7 +67,7 @@ if($login_flag == 0) {
 #        print "</tr>\n";
 #        print "</table>\n";
 #        print $cgi->submit('button', '送信');
-        print $cgi->table({-border => "1"} .
+        print $cgi->table({-border => "1"}, "\n" .
                 $cgi -> Tr(
                         $cgi -> td("User Name : ") .
                         $cgi -> td($cgi->textfield('user_name', '', 16, 16))
