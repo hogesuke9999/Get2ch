@@ -51,6 +51,7 @@ if( $button_name eq "ログアウト") {
 $user_name = $cgi_session->param("user_name");
 if($user_name ne "") {
         print "User Name : " . $user_name . "<br>\n";
+        print $cgi->submit('button', 'ログアウト');
         $login_flag = 1;
 }
 
@@ -59,20 +60,19 @@ if($login_flag == 0) {
         print "<tr>\n";
         print "<td>" . "User Name : " . "</td>\n";
         print "<td>";
-        print $cgi->textfield('user_name','',16,16);
+        print $cgi->textfield('user_name', '', 16, 16);
         print "</td>\n";
         print "</tr>\n";
         print "<tr>\n";
         print "<td>" . "Password : " . "</td>\n";
         print "<td>";
-        print $cgi->textfield('user_pass','',16,16);
+        print $cgi->textfield('user_pass', '', 16, 16);
         print "</td>\n";
         print "</tr>\n";
         print "</table>\n";
+        print $cgi->submit('button', '送信');
 }
 
-print $cgi->submit('button','送信');
-print $cgi->submit('button','ログアウト');
 print $cgi->end_form;
 
 print "<hr>\n";
