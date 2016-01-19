@@ -16,8 +16,12 @@ print $cgi->header(
  -charset => "utf-8",
  -cookie => $cgi->cookie(-name=>'CGISESSID', -value=>$cgi_session->id())
 );
+
 # start the HTML
 print $cgi->start_html(-title => '2ちゃんねる スレッド一覧', -lang => 'ja', -encoding => 'utf-8');
+
+$button_name = $cgi->param('button');
+print "ボタン : " . $button_name . "<br>\n";
 
 print $cgi->start_form("post", "index.pl");
 print $cgi->submit('button','送信');
