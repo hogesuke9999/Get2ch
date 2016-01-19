@@ -67,14 +67,17 @@ if($login_flag == 0) {
 #        print "</tr>\n";
 #        print "</table>\n";
 #        print $cgi->submit('button', '送信');
-        print $cgi->table({-border => "1"}, "\n" .
+        print $cgi->table({-border => "0"}, "\n" .
                 $cgi -> Tr(
                         $cgi -> td("User Name : ") .
-                        $cgi -> td($cgi->textfield('user_name', '', 16, 16))
+                        $cgi -> td($cgi->textfield('user_name', '', 16, 16)) .
+                        "\n"
                 ) .
+                "\n" .
                 $cgi -> Tr(
                         $cgi -> td("Password : ") .
-                        $cgi -> td($cgi->textfield('user_pass', '', 16, 16))
+                        $cgi -> td($cgi->textfield('user_pass', '', 16, 16)) .
+                        "\n"
                 )
         );
         print $cgi->submit('button', '送信');
