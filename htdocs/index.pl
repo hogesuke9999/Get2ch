@@ -5,6 +5,7 @@ use CGI;
 use CGI::Session;
 
 my $user_name, $user_pass ;
+my $login_flag = 0;
 
 # オブジェクトの初期化
 my $cgi_session = new CGI::Session("driver:File", undef, {Directory=>'/tmp'});
@@ -38,6 +39,7 @@ if( $button_name eq "送信") {
 #        print "User Password : " . $user_pass . "<br>\n";
         if($user_name eq $user_pass){
                 $cgi_session->param("user_name", $user_name);
+                $login_flag = 1;
         }
 }
 
@@ -47,7 +49,12 @@ if( $button_name eq "ログアウト") {
 };
 
 $user_name = $cgi_session->param("user_name");
-if($user_name eq "") {
+if($user_name ne "") {
+        print "User Name : " . $user_name . "<br>\n";
+        $login_flag = 1;
+}
+
+if($login_flag == 0) {
         print "<table>\n";
         print "<tr>\n";
         print "<td>" . "User Name : " . "</td>\n";
@@ -69,7 +76,7 @@ print $cgi->submit('button','ログアウト');
 print $cgi->end_form;
 
 print "<hr>\n";
-print "<a href=\"ident.pl\">再表示</a>\n";
+print "<a href=\"index.pl\">再表示</a>\n";
 
 # end the HTML
 print $cgi->end_html;
