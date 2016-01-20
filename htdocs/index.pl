@@ -106,12 +106,12 @@ if($login_flag == 0) {
 	print "<th>スレッド</th>\n";
 	print "</tr>\n";
 
-#	my $sql = "select subjects.id, subjects.tag, subjects.subject
-#		from subjects LEFT JOIN checkflag
-#		ON subjects.id = checkflag.subjects_id
-#		and checkflag.users_id = '" . $TABLE_users_id . "'
-#		where checkflag.flag is NULL
-#		order by datetime limit 15;";
+	my $sql = "select subjects.id, subjects.tag, subjects.subject
+		from subjects LEFT JOIN checkflag
+		ON subjects.id = checkflag.subjects_id
+		and checkflag.users_id = '" . $TABLE_users_id . "'
+		where checkflag.flag is NULL
+		order by datetime limit 15;";
 #	my $sth = $db->prepare($sql);
 #	$sth->execute;
 
@@ -128,6 +128,7 @@ if($login_flag == 0) {
 #	$sth->finish;
 
 	print "</table>\n";
+        print "SQL = " . $sql . "<br>\n";
 }
 
 print $cgi->end_form;
