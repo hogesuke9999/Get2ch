@@ -13,7 +13,7 @@ our $DB_HOST = "127.0.0.1";
 our $DB_PORT = "5432";
 
 # 変数初期化
-my $user_name, $user_pass ;
+my $user_name, $user_pass, $user_id ;
 my $login_flag = 0;
 
 # DB接続オブジェクトの初期化
@@ -70,15 +70,15 @@ if( $button_name eq "ログアウト") {
 		$sth->execute;
 
 		my $arr_ref = $sth->fetchrow_arrayref;
-		my ($TABLE_users_id) = @$arr_ref;
+		($user_id) = @$arr_ref;
 		$sth->finish;
 
-		print "ユーザ名 : " . $user_name . " (" . $TABLE_users_id . ") \n";
+		print "ユーザ名 : " . $user_name . " (" . $user_id . ") \n";
 		print $cgi->submit('button', 'ログアウト');
 		$login_flag = 1;
 	}
 }
-print "ユーザ名 : " . $user_name . " (" . $TABLE_users_id . ") \n";
+
 if($login_flag == 0) {
         # ログイン未実施
         print $cgi->table({-border => "0"}, "\n" .
@@ -109,7 +109,7 @@ if($login_flag == 0) {
 	my $sql = "select subjects.id, subjects.tag, subjects.subject
 		from subjects LEFT JOIN checkflag
 		ON subjects.id = checkflag.subjects_id
-		and checkflag.users_id = '" . $TABLE_users_id . "'
+		and checkflag.users_id = '" . $user_id . "'
 		where checkflag.flag is NULL
 		order by datetime limit 15;";
 #	my $sth = $db->prepare($sql);
@@ -122,7 +122,7 @@ if($login_flag == 0) {
 #		print "</tr>\n";
 
 #		my $sql_w = "insert into checkflag (subjects_id, subjects_tag, users_id, flag, checkdate)
-#			values('" . $TABLE_id . "', '" . $TABLE_tag . "', '" . $TABLE_users_id . "', '1', now());";
+#			values('" . $TABLE_id . "', '" . $TABLE_tag . "', '" . $user_id . "', '1', now());";
 #		$db->do($sql_w);
 #	}
 #	$sth->finish;
