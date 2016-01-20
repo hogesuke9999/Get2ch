@@ -73,8 +73,11 @@ if( $button_name eq "ログアウト") {
 		($user_id) = @$arr_ref;
 		$sth->finish;
 
-		print "ユーザ名 : " . $user_name . " (" . $user_id . ") \n";
-		print $cgi->submit('button', 'ログアウト');
+		print "ユーザ名 : " . $user_name . " (" . $user_id . ")\n";
+                print " ";
+		print $cgi->submit('button', '表示更新');
+		print " ";
+                print $cgi->submit('button', 'ログアウト');
 		$login_flag = 1;
 	}
 }
