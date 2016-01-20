@@ -8,6 +8,10 @@ use Encode;
 use DBI;
 
 my $ConfFileName = $ARGV[0];
+if($ConfFileName eq "") {
+	print "Get2chThread.pl Get2chThread.conf\n";
+	exit 1;
+}
 
 # データベース接続設定の読み込み
 our $DB_NAME, $DB_USER, $DB_PASS, $DB_HOST, $DB_PORT;
