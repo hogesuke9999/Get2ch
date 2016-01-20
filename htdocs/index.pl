@@ -112,23 +112,23 @@ if($login_flag == 0) {
 		and checkflag.users_id = '" . $user_id . "'
 		where checkflag.flag is NULL
 		order by datetime limit 15;";
-#	my $sth = $db->prepare($sql);
-#	$sth->execute;
+	my $sth = $db->prepare($sql);
+	$sth->execute;
 
-#	while (my $arr_ref = $sth->fetchrow_arrayref) {
-#		my ($TABLE_id, $TABLE_tag, $TABLE_subject) = @$arr_ref;
-#		print "<tr>\n";
-#		print "<td>" . $TABLE_id . "</td><td>" . $TABLE_subject . "</td>\n";
-#		print "</tr>\n";
+	while (my $arr_ref = $sth->fetchrow_arrayref) {
+		my ($TABLE_id, $TABLE_tag, $TABLE_subject) = @$arr_ref;
+		print "<tr>\n";
+		print "<td>" . $TABLE_id . "</td><td>" . $TABLE_subject . "</td>\n";
+		print "</tr>\n";
 
 #		my $sql_w = "insert into checkflag (subjects_id, subjects_tag, users_id, flag, checkdate)
 #			values('" . $TABLE_id . "', '" . $TABLE_tag . "', '" . $user_id . "', '1', now());";
 #		$db->do($sql_w);
-#	}
-#	$sth->finish;
+	}
+	$sth->finish;
 
 	print "</table>\n";
-        print "SQL = " . $sql . "<br>\n";
+#        print "SQL = " . $sql . "<br>\n";
 }
 
 print $cgi->end_form;
