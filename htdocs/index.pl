@@ -98,7 +98,36 @@ if($login_flag == 0) {
         );
         print $cgi->submit('button', '送信');
 } else {
-        # ログイン済み
+	# ログイン済み
+	print "<table border='1'>\n";
+
+	print "<tr>\n";
+	print "<th>ID</th>\n";
+	print "<th>スレッド</th>\n";
+	print "</tr>\n";
+
+	my $sql = "select subjects.id, subjects.tag, subjects.subject
+		from subjects LEFT JOIN checkflag
+		ON subjects.id = checkflag.subjects_id
+		and checkflag.users_id = '" . $TABLE_users_id . "'
+		where checkflag.flag is NULL
+		order by datetime limit 15;";
+	my $sth = $db->prepare($sql);
+	$sth->execute;
+
+	while (my $arr_ref = $sth->fetchrow_arrayref) {
+		my ($TABLE_id, $TABLE_tag, $TABLE_subject) = @$arr_ref;
+		print "<tr>\n";
+		print "<td>" . $TABLE_id . "</td><td>" . $TABLE_subject . "</td>\n";
+		print "</tr>\n";
+
+#		my $sql_w = "insert into checkflag (subjects_id, subjects_tag, users_id, flag, checkdate)
+#			values('" . $TABLE_id . "', '" . $TABLE_tag . "', '" . $TABLE_users_id . "', '1', now());";
+#		$db->do($sql_w);
+	}
+	$sth->finish;
+
+	print "</table>\n";
 }
 
 print $cgi->end_form;
