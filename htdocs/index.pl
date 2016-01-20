@@ -121,9 +121,9 @@ if($login_flag == 0) {
 		print "<td>" . $TABLE_id . "</td><td>" . $TABLE_subject . "</td>\n";
 		print "</tr>\n";
 
-#		my $sql_w = "insert into checkflag (subjects_id, subjects_tag, users_id, flag, checkdate)
-#			values('" . $TABLE_id . "', '" . $TABLE_tag . "', '" . $user_id . "', '1', now());";
-#		$db->do($sql_w);
+		my $sql_w = "insert into checkflag (subjects_id, subjects_tag, users_id, flag, checkdate)
+			values('" . $TABLE_id . "', '" . $TABLE_tag . "', '" . $user_id . "', '1', now());";
+		$db->do($sql_w);
 	}
 	$sth->finish;
 
