@@ -56,10 +56,10 @@ for my $ThreadList_tag (sort keys %$ThreadList) {
 				$sth->finish;
 
 				if ( $id_exist == 0 ) {
-#					print $cnt . " : " . $id . "(" . $id_exist . ") = " . $title_utf8 . "\n";
+					print $cnt . " : " . $id . "(" . $id_exist . ") = " . $title_utf8 . "\n";
 					my $sql = "insert into subjects (id, tag, datetime, subject) values ('" . $id . "', '" . $ThreadList_tag . "', now(), '" . $title_utf8 . "');";
-print "SQL = " . $sql . "\n";
-#					$db->do($sql);
+# print "SQL = " . $sql . "\n";
+					$db->do($sql);
 				}
 			}
 			$cnt = $cnt + 1;
