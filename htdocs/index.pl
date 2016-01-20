@@ -78,7 +78,7 @@ if( $button_name eq "ログアウト") {
 		$login_flag = 1;
 	}
 }
-
+print "ユーザ名 : " . $user_name . " (" . $TABLE_users_id . ") \n";
 if($login_flag == 0) {
         # ログイン未実施
         print $cgi->table({-border => "0"}, "\n" .
