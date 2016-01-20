@@ -3,9 +3,9 @@
 # スレッド一覧のDBへの登録
 
 # use strict;
-# use LWP::UserAgent;
-# use Encode;
-# use DBI;
+use LWP::UserAgent;
+use Encode;
+use DBI;
 
 # データベース接続設定の読み込み
 our $DB_NAME, $DB_USER, $DB_PASS, $DB_HOST, $DB_PORT;
