@@ -7,9 +7,11 @@ use LWP::UserAgent;
 use Encode;
 use DBI;
 
+my $ConfFileName = $ARGV[0];
+
 # データベース接続設定の読み込み
 our $DB_NAME, $DB_USER, $DB_PASS, $DB_HOST, $DB_PORT;
-require "Get2chThread.conf";
+require $ConfFileName;
 
 # print "DB_NAME = " . $DB_NAME . "\n";
 # print "DB_USER = " . $DB_USER . "\n";
@@ -27,7 +29,7 @@ $ua->timeout(10);
 $ua->env_proxy;
 $ua->agent("");
 
-my $ThreadList = require "ThreadList.conf";
+my $ThreadList = require $ThreadListFile;
 # print $ThreadList -> {'newsplus'}{'threadhost'} . "\n";
 # print $ThreadList -> {'newsplus'}{'threadname'} . "\n";
 
