@@ -4,12 +4,25 @@ body {
 	line-height:18px;
 }
 
+th.id {
+	width: 100px;
+}
+
+th.ita {
+	width: 120px;
+}
+
+th.thread {
+	width: 900px;
+}
+
+
 td.id {
 	width: 100px;
 }
 
 td.ita {
-	width: 100px;
+	width: 120px;
 }
 
 td.thread {

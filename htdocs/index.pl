@@ -117,9 +117,9 @@ if($login_flag == 0) {
 	print "<table border='1'>\n";
 
 	print "<tr>\n";
-	print "<th>ID</th>\n";
-	print "<th>板</th>\n";
-	print "<th>スレッド</th>\n";
+	print "<th class=\"id\">ID</th>\n";
+	print "<th class=\"ita\">板</th>\n";
+	print "<th class=\"thread\">スレッド</th>\n";
 	print "</tr>\n";
 
 	my $sql = "select subjects.id, subjects.tag, subjects.subject
