@@ -134,8 +134,8 @@ if($login_flag == 0) {
 	while (my $arr_ref = $sth->fetchrow_arrayref) {
 		my ($TABLE_id, $TABLE_tag, $TABLE_subject) = @$arr_ref;
 		print "<tr>\n";
-		print "<td>" . $TABLE_id      . "</td>";
-		print "<td>" . $ThreadList -> {$TABLE_tag}{'threadname'}     . "</td>\n";
+		print "<td>" . $TABLE_id . "</td>";
+		print "<td>" . $ThreadList -> {$TABLE_tag}{'threadname'} . "</td>\n";
 		print "<td><div class=\"textOverflow\">" . $cgi->a({href=>$ThreadList -> {$TABLE_tag}{'threadhost'} . "test/read.cgi/" . $TABLE_tag . "/" . $TABLE_id . "/" . "-3", target=>"_blank"}, $TABLE_subject) . "</div></td>\n";
 		print "</tr>\n";
 
@@ -146,7 +146,6 @@ if($login_flag == 0) {
 	$sth->finish;
 
 	print "</table>\n";
-#        print "SQL = " . $sql . "<br>\n";
 }
 
 print $cgi->end_form;
