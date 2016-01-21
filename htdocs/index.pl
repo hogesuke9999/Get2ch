@@ -37,7 +37,12 @@ print $cgi->header(
 );
 
 # start the HTML
-print $cgi->start_html(-title => '2ちゃんねる スレッド一覧', -lang => 'ja', -encoding => 'utf-8');
+print $cgi->start_html(
+	-title => '2ちゃんねる スレッド一覧',
+	-lang => 'ja',
+	-encoding => 'utf-8',
+	-style=>{'src' => 'style.css'}
+);
 
 print $cgi->start_form("post", "index.pl");
 
