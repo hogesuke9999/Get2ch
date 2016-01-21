@@ -4,6 +4,18 @@ body {
 	line-height:18px;
 }
 
+td.id {
+	width: 100px;
+}
+
+td.ita {
+	width: 100px;
+}
+
+td.thread {
+	width: 900px;
+}
+
 div.textOverflow {
 	width: 900px;
 	white-space: nowrap;
