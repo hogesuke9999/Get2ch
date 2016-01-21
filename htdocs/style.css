@@ -3,3 +3,9 @@ body{
 	font-size:20px;
 	line-height:20px
 }
+
+textOverflow {
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
