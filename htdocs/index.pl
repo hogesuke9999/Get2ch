@@ -127,7 +127,11 @@ if($login_flag == 0) {
 	while (my $arr_ref = $sth->fetchrow_arrayref) {
 		my ($TABLE_id, $TABLE_tag, $TABLE_subject) = @$arr_ref;
 		print "<tr>\n";
-		print "<td>" . $TABLE_id . "</td><td>" . $TABLE_tag . "</td><td>" . $TABLE_subject . "</td>\n";
+		print "<td>" . $TABLE_id      . "</td>";
+#		print "<td>" . $TABLE_tag     . "</td>\n";
+		print "<td>" . $ThreadList -> {$TABLE_tag}{'threadname'}     . "</td>\n";
+
+		print "<td>" . $TABLE_subject . "</td>\n";
 		print "</tr>\n";
 
 		my $sql_w = "insert into checkflag (subjects_id, subjects_tag, users_id, flag, checkdate)
