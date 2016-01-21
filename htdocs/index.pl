@@ -130,8 +130,8 @@ if($login_flag == 0) {
 		print "<td>" . $TABLE_id      . "</td>";
 #		print "<td>" . $TABLE_tag     . "</td>\n";
 		print "<td>" . $ThreadList -> {$TABLE_tag}{'threadname'}     . "</td>\n";
-
-		print "<td>" . $TABLE_subject . "</td>\n";
+#		print "<td>" . $TABLE_subject . "</td>\n";
+		print "<td>" . $cgi->a({href=>"index.pl"}, $TABLE_subject) . "</td>\n";
 		print "</tr>\n";
 
 		my $sql_w = "insert into checkflag (subjects_id, subjects_tag, users_id, flag, checkdate)
