@@ -1,7 +1,7 @@
-body{
+body {
 	background-color:#66ffcc;
 	font-size:20px;
-	line-height:20px
+	line-height:20px;
 }
 
 textOverflow {
@@ -9,4 +9,5 @@ textOverflow {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	color:blue;
 }
