@@ -16,6 +16,11 @@ our $DB_PORT = "5432";
 my $user_name, $user_pass, $user_id ;
 my $login_flag = 0;
 
+$ThreadListFile = "/opt/Get2ch/ThreadList.conf";
+my $ThreadList = require $ThreadListFile;
+# print $ThreadList -> {'newsplus'}{'threadhost'} . "\n";
+# print $ThreadList -> {'newsplus'}{'threadname'} . "\n";
+
 # DB接続オブジェクトの初期化
 my $db = DBI->connect("dbi:Pg:dbname=$DB_NAME;host=$DB_HOST;port=$DB_PORT","$DB_USER","$DB_PASS") or die "$!\n Error: failed to connect to DB.\n";
 
@@ -106,6 +111,7 @@ if($login_flag == 0) {
 
 	print "<tr>\n";
 	print "<th>ID</th>\n";
+	print "<th>板</th>\n";
 	print "<th>スレッド</th>\n";
 	print "</tr>\n";
 
@@ -121,7 +127,7 @@ if($login_flag == 0) {
 	while (my $arr_ref = $sth->fetchrow_arrayref) {
 		my ($TABLE_id, $TABLE_tag, $TABLE_subject) = @$arr_ref;
 		print "<tr>\n";
-		print "<td>" . $TABLE_id . "</td><td>" . $TABLE_subject . "</td>\n";
+		print "<td>" . $TABLE_id . "</td><td>" . $TABLE_tag . "</td><td>" . $TABLE_subject . "</td>\n";
 		print "</tr>\n";
 
 		my $sql_w = "insert into checkflag (subjects_id, subjects_tag, users_id, flag, checkdate)
