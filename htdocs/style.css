@@ -4,10 +4,10 @@ body {
 	line-height:20px;
 }
 
-textOverflow {
+div.textOverflow {
 	width: 200px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	color:blue;
+	color:red;
 }
