@@ -41,7 +41,7 @@ print $cgi->start_html(
 	-title => '2ちゃんねる スレッド一覧',
 	-lang => 'ja',
 	-encoding => 'utf-8',
-	-style=>{'src' => 'css/style.css'}
+	-style=>{'src' => '/get2ch/css/style.css'}
 );
 
 print $cgi->start_form("post", "index.pl");
@@ -136,7 +136,7 @@ if($login_flag == 0) {
 		print "<tr>\n";
 		print "<td>" . $TABLE_id      . "</td>";
 		print "<td>" . $ThreadList -> {$TABLE_tag}{'threadname'}     . "</td>\n";
-		print "<td><div class=\"textOverflow\">" . $cgi->a({href=>$ThreadList -> {$TABLE_tag}{'threadhost'} . "/test/read.cgi/" . $TABLE_tag . "/" . $TABLE_id . "/" . "-3", target=>"_blank"}, $TABLE_subject) . "</div></td>\n";
+		print "<td><div class=\"textOverflow\">" . $cgi->a({href=>$ThreadList -> {$TABLE_tag}{'threadhost'} . "test/read.cgi/" . $TABLE_tag . "/" . $TABLE_id . "/" . "-3", target=>"_blank"}, $TABLE_subject) . "</div></td>\n";
 		print "</tr>\n";
 
 		my $sql_w = "insert into checkflag (subjects_id, subjects_tag, users_id, flag, checkdate)
