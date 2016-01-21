@@ -98,6 +98,7 @@ if($login_flag == 0) {
                 $cgi -> Tr(
                         "\n" .
                         $cgi -> td("User Name : ") .
+			"\n" .
                         $cgi -> td($cgi->textfield('user_name', '', 16, 16)) .
                         "\n"
                 ) .
@@ -105,6 +106,7 @@ if($login_flag == 0) {
                 $cgi -> Tr(
                         "\n" .
                         $cgi -> td("Password : ") .
+			"\n" .
                         $cgi -> td($cgi->textfield('user_pass', '', 16, 16)) .
                         "\n"
                 )
