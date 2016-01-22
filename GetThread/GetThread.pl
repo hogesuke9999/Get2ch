@@ -14,7 +14,7 @@ my $response = $ua->get($URL);
 if ($response->is_success) {
 	my @page = split( '\n', $response->content );
 	foreach my $line ( @page ) {
-		if ( $line =~ '^<dt>1 ：' ) {
+		if ( $line =~ '^<dt>1' ) {
 			print $line . "\n";
 		}
 	}
