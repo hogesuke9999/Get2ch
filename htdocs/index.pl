@@ -135,9 +135,8 @@ if($login_flag == 0) {
 		my ($TABLE_id, $TABLE_tag, $TABLE_subject) = @$arr_ref;
 		my $URL = "GetThread.pl?id=" . $TABLE_id . "&tag=" . $TABLE_tag;
 		print "<tr>\n";
-		print "<td class=\"id\">" . $TABLE_id . "</td>";
+		print "<td class=\"id\">" . $TABLE_id . "</td>\n";
 		print "<td class=\"ita\">" . $ThreadList -> {$TABLE_tag}{'threadname'} . "</td>\n";
-#		print "<td class=\"thread\"><div class=\"textOverflow\">" . $cgi->a({href=>$ThreadList -> {$TABLE_tag}{'threadhost'} . "test/read.cgi/" . $TABLE_tag . "/" . $TABLE_id . "/" . "-3", target=>"_blank"}, $TABLE_subject) . "</div></td>\n";
 		print "<td class=\"thread\"><div class=\"textOverflow\">" . $cgi->a({href=>$URL, target=>"_blank"}, $TABLE_subject) . "</div></td>\n";
 		print "</tr>\n";
 
