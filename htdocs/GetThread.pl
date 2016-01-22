@@ -25,7 +25,7 @@ print $cgi->charset("utf-8");
 
 # create the HTTP header
 # print $cgi->header('text/html' -charset => "utf-8",);
-print $cgi->header(-charset => "utf-8",);
+print $cgi->header(-type => 'text/html',-charset => "utf-8",);
 
 # start the HTML
 print $cgi->start_html(-title => '2ちゃんねる スレッド', -lang => 'ja', -encoding => 'utf-8');
