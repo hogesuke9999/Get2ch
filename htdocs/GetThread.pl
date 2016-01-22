@@ -59,11 +59,11 @@ if($ErrorFlag == 0) {
 	print "<br>\n";
 
 	print "<a href=\"#\" onClick=\"window.close(); return false;\">";
-	print "<img src=\"/get2ch/css/button_l.png\"  width=\"300\" height=\"200\">";
-	print "<img src=\"/get2ch/css/button_c.png\"  width=\"300\" height=\"200\">";
-	print "<img src=\"/get2ch/css/button_nm.png\" width=\"300\" height=\"200\">";
-	print "<img src=\"/get2ch/css/button_c.png\"  width=\"300\" height=\"200\">";
-	print "<img src=\"/get2ch/css/button_r.png\"  width=\"300\" height=\"200\">";
+	print "<img src=\"/get2ch/css/button_l.png\"                height=\"80\">";
+	print "<img src=\"/get2ch/css/button_c.png\"  width=\"300\" height=\"80\">";
+	print "<img src=\"/get2ch/css/button_nm.png\"               height=\"80\">";
+	print "<img src=\"/get2ch/css/button_c.png\"  width=\"300\" height=\"80\">";
+	print "<img src=\"/get2ch/css/button_r.png\"                height=\"80\">";
 	print "</a>\n";
 	print "<br>\n";
 
