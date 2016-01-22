@@ -9,6 +9,8 @@ $ua->timeout(10);
 $ua->env_proxy;
 $ua->agent("");
 
+my $ErrorFlag = 0 ;
+
 # my $URL = "http://daily.2ch.net/test/read.cgi/newsplus/1453205001/-3";
 
 $ThreadListFile = "/opt/Get2ch/ThreadList.conf";
@@ -28,43 +30,50 @@ print $cgi->header('text/html' -charset => "utf-8",);
 print $cgi->start_html(-title => '2ちゃんねる スレッド', -lang => 'ja', -encoding => 'utf-8');
 
 my $PUT_id  = $cgi->param('id');
-my $PUT_tag = $cgi->param('tag');
-
-if($PUT_tag ne "") {
-	$ThreadHost = $ThreadList -> {$PUT_tag}{'threadhost'};
-	$ThreadName = $ThreadList -> {$PUT_tag}{'threadname'};
+if($PUT_id eq "") {
+	print "[Error]スレッドIDが指定されていません\n";
+	$ErrorFlag = 1 ;
 }
 
-# print "ID          : " . $PUT_id  . "<br>\n";
-# print "Tag         : " . $PUT_tag . "<br>\n";
-# print "Thread Host : " . $ThreadHost . "<br>\n";
-# print "Thread Name : " . $ThreadName . "<br>\n";
-
-# my $URL = "http://daily.2ch.net/test/read.cgi/newsplus/1453205001/-3";
-my $URL = $ThreadHost . "test/read.cgi/" . $PUT_tag . "/" . $PUT_id . "/-1";
-print "URL = " . $URL . "<br>\n";
-
-my $response = $ua->get($URL);
-
-if ($response->is_success) {
-	my @page = split( '\n', $response->content );
-	foreach my $line ( @page ) {
-		if ( $line =~ '^<dt>1' ) {
-#			my ( $message_date, $message_body ) = ( $line =~ /<dt>1.*<\/a>(.*)ID.*<dd>(.*)$/) ;
-			my ( $message_body ) = ( $line =~ /<dt>1.*<dd>(.*)$/) ;
-#			my $message_date_utf8 = encode('utf-8', decode('sjis', $message_date));
-			my $message_body_utf8 = encode('utf-8', decode('sjis', $message_body));
-
-#			print "<p>";
-#			print "投稿日時" . $message_date_utf8;
-#			print "</p>\n";
-			print "<p>";
-			print $message_body_utf8 . "\n";
-			print "</p>\n";
-		}
-	}
+my $PUT_tag = $cgi->param('tag');
+if($PUT_tag eq "") {
+	print "[Error]板が指定されていません\n";
+	$ErrorFlag = 1 ;
 } else {
-	die $response->status_line;
+	$ThreadHost = $ThreadList -> {$PUT_tag}{'threadhost'};
+	if($ThreadHost eq "") {
+		print "[Error]ホストが取得できません\n";
+		$ErrorFlag = 1 ;
+	}
+	$ThreadName = $ThreadList -> {$PUT_tag}{'threadname'};
+	if($ThreadName eq "") {
+		print "[Error]スレッド名が取得できません\n";
+		$ErrorFlag = 1 ;
+	}
+}
+
+if($ErrorFlag == 0) {
+	# my $URL = "http://daily.2ch.net/test/read.cgi/newsplus/1453205001/-3";
+	my $URL = $ThreadHost . "test/read.cgi/" . $PUT_tag . "/" . $PUT_id . "/-1";
+	print "参照URL : " . $cgi->a({href=>$URL}, $URL) . "<br>\n";
+
+	my $response = $ua->get($URL);
+
+	if ($response->is_success) {
+		my @page = split( '\n', $response->content );
+		foreach my $line ( @page ) {
+			if ( $line =~ '^<dt>1' ) {
+				my ( $message_body ) = ( $line =~ /<dt>1.*<dd>(.*)$/) ;
+				my $message_body_utf8 = encode('utf-8', decode('sjis', $message_body));
+
+				print "<p>";
+				print $message_body_utf8 . "\n";
+				print "</p>\n";
+			}
+		}
+	} else {
+		die $response->status_line;
+	}
 }
 
 # end the HTML
