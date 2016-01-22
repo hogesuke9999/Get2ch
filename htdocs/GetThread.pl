@@ -11,6 +11,11 @@ $ua->agent("");
 
 my $URL = "http://daily.2ch.net/test/read.cgi/newsplus/1453205001/-3";
 
+$ThreadListFile = "/opt/Get2ch/ThreadList.conf";
+my $ThreadList = require $ThreadListFile;
+# print $ThreadList -> {'newsplus'}{'threadhost'} . "\n";
+# print $ThreadList -> {'newsplus'}{'threadname'} . "\n";
+
 # create new CGI object
 my $cgi = CGI->new;
 
@@ -22,24 +27,29 @@ print $cgi->header('text/html' -charset => "utf-8",);
 # start the HTML
 print $cgi->start_html(-title => '2ちゃんねる スレッド', -lang => 'ja', -encoding => 'utf-8');
 
-my $response = $ua->get($URL);
+my $PUT_id  = $cgi->param('id');
+my $PUT_tag = $cgi->param('tag');
 
-if ($response->is_success) {
-	my @page = split( '\n', $response->content );
-	foreach my $line ( @page ) {
-		if ( $line =~ '^<dt>1' ) {
-			my ( $message_date, $message_body ) = ( $line =~ /<dt>1.*<\/a>(.*)ID.*<dd>(.*)$/) ;
-			my $message_date_utf8 = encode('utf-8', decode('sjis', $message_date));
-			my $message_body_utf8 = encode('utf-8', decode('sjis', $message_body));
+print "ID  : " . $PUT_id  . "<br>\n";
+print "Tag : " . $PUT_tag . "<br>\n";
 
-			print $message_date_utf8 . "\n";
-			print $message_body_utf8 . "\n";
-		}
-	}
-} else {
-	die $response->status_line;
-}
-
+# my $response = $ua->get($URL);
+#
+# if ($response->is_success) {
+# 	my @page = split( '\n', $response->content );
+# 	foreach my $line ( @page ) {
+# 		if ( $line =~ '^<dt>1' ) {
+# 			my ( $message_date, $message_body ) = ( $line =~ /<dt>1.*<\/a>(.*)ID.*<dd>(.*)$/) ;
+# 			my $message_date_utf8 = encode('utf-8', decode('sjis', $message_date));
+# 			my $message_body_utf8 = encode('utf-8', decode('sjis', $message_body));
+#
+# 			print "投稿" . $message_date_utf8 . "\n";
+# 			print $message_body_utf8 . "\n";
+# 		}
+# 	}
+# } else {
+# 	die $response->status_line;
+# }
 
 # end the HTML
 print $cgi->end_html;
