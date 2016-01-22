@@ -58,7 +58,7 @@ if($ErrorFlag == 0) {
 	print "<a href=\"#\" onClick=\"window.close(); return false;\">閉じる</a>\n";
 	print "<br>\n";
 
-	print "<a href=\"#\" onClick=\"window.close(); return false;\">"
+	print "<a href=\"#\" onClick=\"window.close(); return false;\">";
 	print "<img src=\"/get2ch/css/button_l.png\"  width=\"300\" height=\"200\">";
 	print "<img src=\"/get2ch/css/button_c.png\"  width=\"300\" height=\"200\">";
 	print "<img src=\"/get2ch/css/button_nm.png\" width=\"300\" height=\"200\">";
