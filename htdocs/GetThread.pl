@@ -21,7 +21,7 @@ my $ThreadList = require $ThreadListFile;
 # create new CGI object
 my $cgi = CGI->new;
 
-$cgi->charset("utf-8");
+# $cgi->charset("utf-8");
 
 # create the HTTP header
 print $cgi->header('text/html' -type => 'text/html', -charset => "utf-8",);
