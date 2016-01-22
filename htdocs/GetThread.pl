@@ -58,11 +58,13 @@ if($ErrorFlag == 0) {
 	print "<a href=\"#\" onClick=\"window.close(); return false;\">閉じる</a>\n";
 	print "<br>\n";
 
-	print "<img src=\"/get2ch/css/button_l.png\">";
-	print "<img src=\"/get2ch/css/button_c.png\">";
-	print "<img src=\"/get2ch/css/button_nm.png\">";
-	print "<img src=\"/get2ch/css/button_c.png\">";
-	print "<img src=\"/get2ch/css/button_r.png\">";
+	print "<a href=\"#\" onClick=\"window.close(); return false;\">"
+	print "<img src=\"/get2ch/css/button_l.png\"  width="300" height="200">";
+	print "<img src=\"/get2ch/css/button_c.png\"  width="300" height="200">";
+	print "<img src=\"/get2ch/css/button_nm.png\" width="300" height="200">";
+	print "<img src=\"/get2ch/css/button_c.png\"  width="300" height="200">";
+	print "<img src=\"/get2ch/css/button_r.png\"  width="300" height="200">";
+	print "</a>\n";
 	print "<br>\n";
 
 	# my $URL = "http://daily.2ch.net/test/read.cgi/newsplus/1453205001/-3";
