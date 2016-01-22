@@ -133,7 +133,7 @@ if($login_flag == 0) {
 
 	while (my $arr_ref = $sth->fetchrow_arrayref) {
 		my ($TABLE_id, $TABLE_tag, $TABLE_subject) = @$arr_ref;
-		my $URL = "get2ch/GetThread.pl?id=" . $TABLE_id . "&tag=" . $TABLE_tag;
+		my $URL = "GetThread.pl?id=" . $TABLE_id . "&tag=" . $TABLE_tag;
 		print "<tr>\n";
 		print "<td class=\"id\">" . $TABLE_id . "</td>";
 		print "<td class=\"ita\">" . $ThreadList -> {$TABLE_tag}{'threadname'} . "</td>\n";
