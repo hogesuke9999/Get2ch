@@ -15,7 +15,10 @@ if ($response->is_success) {
 	my @page = split( '\n', $response->content );
 	foreach my $line ( @page ) {
 		if ( $line =~ '^<dt>1' ) {
-			print $line . "\n";
+			my ( $message ) = ( $line =~ /<dt>1(.*)$/) ;
+			my $message_utf8 = encode('utf-8', decode('sjis', $message));
+
+			print $message_utf8 . "\n";
 		}
 	}
 } else {
