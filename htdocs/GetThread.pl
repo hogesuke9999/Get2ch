@@ -50,13 +50,14 @@ if ($response->is_success) {
 	my @page = split( '\n', $response->content );
 	foreach my $line ( @page ) {
 		if ( $line =~ '^<dt>1' ) {
-			my ( $message_date, $message_body ) = ( $line =~ /<dt>1.*<\/a>(.*)ID.*<dd>(.*)$/) ;
-			my $message_date_utf8 = encode('utf-8', decode('sjis', $message_date));
+#			my ( $message_date, $message_body ) = ( $line =~ /<dt>1.*<\/a>(.*)ID.*<dd>(.*)$/) ;
+			my ( $message_body ) = ( $line =~ /<dt>1.*<dd>(.*)$/) ;
+#			my $message_date_utf8 = encode('utf-8', decode('sjis', $message_date));
 			my $message_body_utf8 = encode('utf-8', decode('sjis', $message_body));
 
-			print "<p>";
-			print "投稿日時" . $message_date_utf8;
-			print "</p>\n";
+#			print "<p>";
+#			print "投稿日時" . $message_date_utf8;
+#			print "</p>\n";
 			print "<p>";
 			print $message_body_utf8 . "\n";
 			print "</p>\n";
