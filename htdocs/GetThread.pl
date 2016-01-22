@@ -55,6 +55,8 @@ if($PUT_tag eq "") {
 }
 
 if($ErrorFlag == 0) {
+	print "<a href=\"#\" onClick=\"window.close(); return false;\">閉じる</a>\n";
+
 	# my $URL = "http://daily.2ch.net/test/read.cgi/newsplus/1453205001/-3";
 	my $URL = $ThreadHost . "test/read.cgi/" . $PUT_tag . "/" . $PUT_id . "/-1";
 	print "参照URL : " . $cgi->a({href=>$URL}, $URL) . "<br>\n";
