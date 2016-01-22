@@ -42,7 +42,7 @@ if($PUT_tag ne "") {
 
 # my $URL = "http://daily.2ch.net/test/read.cgi/newsplus/1453205001/-3";
 my $URL = $ThreadHost . "test/read.cgi/" . $PUT_tag . "/" . $PUT_id . "/-1";
-# print "URL = " . $URL . "<br>\n";
+print "URL = " . $URL . "<br>\n";
 
 my $response = $ua->get($URL);
 
