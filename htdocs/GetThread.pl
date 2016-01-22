@@ -55,8 +55,8 @@ if($PUT_tag eq "") {
 }
 
 if($ErrorFlag == 0) {
-	print "<a href=\"#\" onClick=\"window.close(); return false;\">閉じる</a>\n";
-	print "<br>\n";
+#	print "<a href=\"#\" onClick=\"window.close(); return false;\">閉じる</a>\n";
+#	print "<br>\n";
 
 	print "<a href=\"#\" onClick=\"window.close(); return false;\">";
 	print "<img src=\"/get2ch/css/button_l.png\"                height=\"40\">";
