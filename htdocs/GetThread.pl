@@ -54,8 +54,12 @@ if ($response->is_success) {
 			my $message_date_utf8 = encode('utf-8', decode('sjis', $message_date));
 			my $message_body_utf8 = encode('utf-8', decode('sjis', $message_body));
 
-			print "投稿" . $message_date_utf8 . "\n";
+			print "<p>";
+			print "投稿日時" . $message_date_utf8;
+			print "</p>\n";
+			print "<p>";
 			print $message_body_utf8 . "\n";
+			print "</p>\n";
 		}
 	}
 } else {
