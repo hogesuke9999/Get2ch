@@ -30,8 +30,15 @@ print $cgi->start_html(-title => '2ちゃんねる スレッド', -lang => 'ja',
 my $PUT_id  = $cgi->param('id');
 my $PUT_tag = $cgi->param('tag');
 
-print "ID  : " . $PUT_id  . "<br>\n";
-print "Tag : " . $PUT_tag . "<br>\n";
+if($PUT_tag ne "") {
+	$ThreadHost = $ThreadList -> {$PUT_tag}{'threadhost'};
+	$ThreadName = $ThreadList -> {$PUT_tag}{'threadname'};
+}
+
+print "ID          : " . $PUT_id  . "<br>\n";
+print "Tag         : " . $PUT_tag . "<br>\n";
+print "Thread Host : " . $ThreadHost . "<br>\n";
+print "Thread Name : " . $ThreadName . "<br>\n";
 
 # my $response = $ua->get($URL);
 #
