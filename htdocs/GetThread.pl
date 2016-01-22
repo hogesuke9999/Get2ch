@@ -56,6 +56,13 @@ if($PUT_tag eq "") {
 
 if($ErrorFlag == 0) {
 	print "<a href=\"#\" onClick=\"window.close(); return false;\">閉じる</a>\n";
+	print "<br>\n";
+
+	print "<img src=\"/get2ch/css/button_l.png\">";
+	print "<img src=\"/get2ch/css/button_c.png\">";
+	print "<img src=\"/get2ch/css/button_nm.png\">";
+	print "<img src=\"/get2ch/css/button_c.png\">";
+	print "<img src=\"/get2ch/css/button_r.png\">";
 
 	# my $URL = "http://daily.2ch.net/test/read.cgi/newsplus/1453205001/-3";
 	my $URL = $ThreadHost . "test/read.cgi/" . $PUT_tag . "/" . $PUT_id . "/-1";
