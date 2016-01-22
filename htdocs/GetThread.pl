@@ -44,23 +44,23 @@ if($PUT_tag ne "") {
 my $URL = $ThreadHost . "test/read.cgi/" . $PUT_tag . "/" . $PUT_id . "/-1";
 # print "URL = " . $URL . "<br>\n";
 
-# my $response = $ua->get($URL);
-#
-# if ($response->is_success) {
-# 	my @page = split( '\n', $response->content );
-# 	foreach my $line ( @page ) {
-# 		if ( $line =~ '^<dt>1' ) {
-# 			my ( $message_date, $message_body ) = ( $line =~ /<dt>1.*<\/a>(.*)ID.*<dd>(.*)$/) ;
-# 			my $message_date_utf8 = encode('utf-8', decode('sjis', $message_date));
-# 			my $message_body_utf8 = encode('utf-8', decode('sjis', $message_body));
-#
-# 			print "投稿" . $message_date_utf8 . "\n";
-# 			print $message_body_utf8 . "\n";
-# 		}
-# 	}
-# } else {
-# 	die $response->status_line;
-# }
+my $response = $ua->get($URL);
+
+if ($response->is_success) {
+	my @page = split( '\n', $response->content );
+	foreach my $line ( @page ) {
+		if ( $line =~ '^<dt>1' ) {
+			my ( $message_date, $message_body ) = ( $line =~ /<dt>1.*<\/a>(.*)ID.*<dd>(.*)$/) ;
+			my $message_date_utf8 = encode('utf-8', decode('sjis', $message_date));
+			my $message_body_utf8 = encode('utf-8', decode('sjis', $message_body));
+
+			print "投稿" . $message_date_utf8 . "\n";
+			print $message_body_utf8 . "\n";
+		}
+	}
+} else {
+	die $response->status_line;
+}
 
 # end the HTML
 print $cgi->end_html;
