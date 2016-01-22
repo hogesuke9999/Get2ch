@@ -63,6 +63,7 @@ if($ErrorFlag == 0) {
 	print "<img src=\"/get2ch/css/button_nm.png\">";
 	print "<img src=\"/get2ch/css/button_c.png\">";
 	print "<img src=\"/get2ch/css/button_r.png\">";
+	print "<br>\n";
 
 	# my $URL = "http://daily.2ch.net/test/read.cgi/newsplus/1453205001/-3";
 	my $URL = $ThreadHost . "test/read.cgi/" . $PUT_tag . "/" . $PUT_id . "/-1";
