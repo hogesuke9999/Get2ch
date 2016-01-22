@@ -35,14 +35,14 @@ if($PUT_tag ne "") {
 	$ThreadName = $ThreadList -> {$PUT_tag}{'threadname'};
 }
 
-print "ID          : " . $PUT_id  . "<br>\n";
-print "Tag         : " . $PUT_tag . "<br>\n";
-print "Thread Host : " . $ThreadHost . "<br>\n";
-print "Thread Name : " . $ThreadName . "<br>\n";
+# print "ID          : " . $PUT_id  . "<br>\n";
+# print "Tag         : " . $PUT_tag . "<br>\n";
+# print "Thread Host : " . $ThreadHost . "<br>\n";
+# print "Thread Name : " . $ThreadName . "<br>\n";
 
 # my $URL = "http://daily.2ch.net/test/read.cgi/newsplus/1453205001/-3";
 my $URL = $ThreadHost . "test/read.cgi/" . $PUT_tag . "/" . $PUT_id . "/-1";
-print "URL = " . $URL . "<br>\n";
+# print "URL = " . $URL . "<br>\n";
 
 # my $response = $ua->get($URL);
 #
