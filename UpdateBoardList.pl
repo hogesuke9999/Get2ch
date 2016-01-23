@@ -41,7 +41,13 @@ if ($response->is_success) {
 				my $arr_ref = $sth->fetchrow_arrayref;
 				my ($thread_name_exist) = @$arr_ref;
 				$sth->finish;
-				print $board_host . " : " . $board_name . "(" . $thread_name_exist . ") = " . $board_title_utf8 . "\n";
+#				print $board_host . " : " . $board_name . "(" . $thread_name_exist . ") = " . $board_title_utf8 . "\n";
+				if($thread_name_exist == 0) {
+					$sql = "insert into board (name, host, title) values ('" . $board_name . "', '" . $board_host . "', '" . $board_title_utf8 . "');";
+				} else {
+					$sql = "update board set host = '" . $board_host . "', title = '" . $board_title_utf8 . "' where name = '" . $board_name . "'";
+				}
+				print "SQL = " . $sql . "\n";
 			}
 		}
 	}
