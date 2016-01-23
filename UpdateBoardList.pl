@@ -21,7 +21,7 @@ my $db = DBI->connect("dbi:Pg:dbname=$DB_NAME;host=$DB_HOST;port=$DB_PORT","$DB_
 
 my @boardlist = ( 'newsplus', 'mnewsplus', 'bizplus', 'plus' );
 
-my $bbstable = "http://www.2ch.net/bbstable.html";
+my $bbstable = "http://menu.2ch.net/bbstable.html";
 
 my $response = $ua->get($bbstable);
 
