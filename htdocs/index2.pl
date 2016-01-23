@@ -129,6 +129,7 @@ if($login_flag == 0) {
 		where checkflag.flag is NULL
 		order by datetime limit 15;";
 	my $sth = $db->prepare($sql);
+	print "SQL = " . $sql . "\n";
 	$sth->execute;
 
 	while (my $arr_ref = $sth->fetchrow_arrayref) {
