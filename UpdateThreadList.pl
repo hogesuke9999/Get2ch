@@ -19,7 +19,7 @@ if ($response->is_success) {
 	foreach my $line ( @page ) {
 		if ( $line =~ '<A HREF=http://.*</A>' ) {
 			my ( $thread_url, $thread_title ) = ( $line =~ /<A HREF=(.*)>(.*)<\/A>$/) ;
-			my ( $thread_host, $thread_name ) = ( $thread_url =~ /^(.*)\/(.*)\// );
+			my ( $thread_host, $thread_name ) = ( $thread_url =~ /^(.*\/)(.*)\// );
 			my $thread_title_utf8 = encode('utf-8', decode('sjis', $thread_title));
 
 			if ( grep { $_ eq $thread_name } @threadlist ) {
