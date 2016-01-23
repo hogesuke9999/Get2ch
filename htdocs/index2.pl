@@ -129,7 +129,7 @@ if($login_flag == 0) {
 		where checkflag.flag is NULL
 		order by createtime limit 15;";
 	my $sth = $db->prepare($sql);
-	print "SQL = " . $sql . "\n";
+#	print "SQL = " . $sql . "\n";
 	$sth->execute;
 
 	while (my $arr_ref = $sth->fetchrow_arrayref) {
@@ -139,7 +139,7 @@ if($login_flag == 0) {
 		$sql_board = "select title from board where name = ?;";
 		my $sth_board = $db->prepare($sql);
 		$sth_board->execute($TABLE_board_name);
-		my $board_arr_ref = $sth_board->fetchrow_arrayref
+		my $board_arr_ref = $sth_board->fetchrow_arrayref;
 		my ($TABLE_board_title) = @$board_arr_ref;
 
 		print "<tr>\n";
