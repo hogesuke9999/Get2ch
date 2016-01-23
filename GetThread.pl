@@ -67,6 +67,6 @@ while (my $board_arr_ref = $sth_board->fetchrow_arrayref) {
 	}
 }
 
-$sth->finish;
+$sth_board->finish;
 
 $db->disconnect;
