@@ -137,7 +137,7 @@ if($login_flag == 0) {
 		my $URL = "GetThread.pl?id=" . $TABLE_id . "&tag=" . $TABLE_board_name;
 
 		$sql_board = "select title from board where name = ?;";
-		my $sth_board = $db->prepare($sql);
+		my $sth_board = $db->prepare($sql_board);
 		$sth_board->execute($TABLE_board_name);
 		my $board_arr_ref = $sth_board->fetchrow_arrayref;
 		my ($TABLE_board_title) = @$board_arr_ref;
