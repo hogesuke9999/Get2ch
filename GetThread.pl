@@ -56,9 +56,10 @@ while (my $board_arr_ref = $sth_board->fetchrow_arrayref) {
 
 				if ( $thread_id_exist == 0 ) {
 					print $cnt . " : " . $thread_id . "(" . $thread_id_exist . ") = " . $thread_title_utf8 . "\n";
-					my $sql = "insert into threads (id, board_name, createtime, title) values ('" . $thread_id . "', '" . $board_name . "', now(), '" . $thread_title_utf8 . "');";
+#					my $sql = "insert into threads (id, board_name, createtime, title) values ('" . $thread_id . "', '" . $board_name . "', now(), '" . $thread_title_utf8 . "');";
+					my $sql = "insert into threads (id, board_name, createtime, title) values ('?', '?', now(), '?');";
 					my $sth = $db->prepare($sql);
-					$sth->execute;
+					$sth->execute($thread_id, $board_name, $thread_title_utf8);
 #					$db->do($sql);
 				}
 			}
