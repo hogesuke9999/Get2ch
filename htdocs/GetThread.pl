@@ -17,6 +17,7 @@ our $DB_PASS = "get2chpass";
 our $DB_HOST = "127.0.0.1";
 our $DB_PORT = "5432";
 
+my ($ThreadHost, $ThreadName);
 my $ErrorFlag = 0 ;
 
 # DB接続オブジェクトの初期化
@@ -57,7 +58,7 @@ if($PUT_tag eq "") {
 	my $sth = $db->prepare($sql);
 	$sth->execute($PUT_tag);
 	my $arr_ref = $sth->fetchrow_arrayref;
-	my ($ThreadHost, $ThreadName) = @$arr_ref;
+	($ThreadHost, $ThreadName) = @$arr_ref;
 
 	if($ThreadHost eq "") {
 		print "[Error]ホストが取得できません\n";
