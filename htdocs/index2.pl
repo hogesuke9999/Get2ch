@@ -144,7 +144,8 @@ if($login_flag == 0) {
 
 		print "<tr>\n";
 		print "<td class=\"id\">" . $TABLE_id . "</td>\n";
-		print "<td class=\"ita\">" . $TABLE_board_title . "(" . $TABLE_board_name . ")</td>\n";
+		print "<td class=\"ita\">" . $TABLE_board_title . "</td>\n";
+#		print "<td class=\"ita\">" . $TABLE_board_title . "(" . $TABLE_board_name . ")</td>\n";
 		print "<td class=\"thread\"><div class=\"textOverflow\">" . $cgi->a({href=>$URL, target=>"_blank"}, $TABLE_title) . "</div></td>\n";
 		print "</tr>\n";
 
