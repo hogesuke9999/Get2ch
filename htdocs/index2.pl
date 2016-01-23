@@ -135,9 +135,16 @@ if($login_flag == 0) {
 	while (my $arr_ref = $sth->fetchrow_arrayref) {
 		my ($TABLE_id, $TABLE_board_name, $TABLE_title) = @$arr_ref;
 		my $URL = "GetThread.pl?id=" . $TABLE_id . "&tag=" . $TABLE_board_name;
+
+		$sql_board = "select title from board where name = ?;";
+		my $sth_board = $db->prepare($sql);
+		$sth_board->execute($TABLE_board_name);
+		my $board_arr_ref = $sth_board->fetchrow_arrayref
+		my ($TABLE_board_title) = @$board_arr_ref;
+
 		print "<tr>\n";
 		print "<td class=\"id\">" . $TABLE_id . "</td>\n";
-		print "<td class=\"ita\">" . $TABLE_board_name . "</td>\n";
+		print "<td class=\"ita\">" . $TABLE_board_title . "(" . $TABLE_board_name . ")</td>\n";
 		print "<td class=\"thread\"><div class=\"textOverflow\">" . $cgi->a({href=>$URL, target=>"_blank"}, $TABLE_title) . "</div></td>\n";
 		print "</tr>\n";
 
