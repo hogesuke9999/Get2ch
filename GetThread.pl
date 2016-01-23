@@ -37,7 +37,7 @@ while (my $board_arr_ref = $sth_board->fetchrow_arrayref) {
 	print "Title : " . $board_title . "\n";
 
 	my $response = $ua->get($board_host . $board_name . "/subback.html");
-
+	print "URL   : " . $board_host . $board_name . "/subback.html" . "\n";
 	if ($response->is_success) {
 		my @page = split( '\n', $response->content );
 		my $cnt = 1;
