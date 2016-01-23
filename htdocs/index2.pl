@@ -152,7 +152,7 @@ if($login_flag == 0) {
 
 		my $sql_w = "insert into checkflag (subjects_id, subjects_tag, users_id, flag, checkdate)
 			values('" . $TABLE_id . "', '" . $TABLE_board_name . "', '" . $user_id . "', '1', now());";
-#		$db->do($sql_w);
+		$db->do($sql_w);
 	}
 	$sth->finish;
 
