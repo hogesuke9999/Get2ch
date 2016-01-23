@@ -37,7 +37,7 @@ while (my $board_arr_ref = $sth_board->fetchrow_arrayref) {
 	print "Title : " . $board_title . "\n";
 
 	my $response = $ua->get($board_host . $board_name . "/subback.html");
-	print "URL   : " . $board_host . $board_name . "/subback.html" . "\n";
+#	print "URL   : " . $board_host . $board_name . "/subback.html" . "\n";
 	if ($response->is_success) {
 		my @page = split( '\n', $response->content );
 		my $cnt = 1;
@@ -57,7 +57,7 @@ while (my $board_arr_ref = $sth_board->fetchrow_arrayref) {
 				if ( $thread_id_exist == 0 ) {
 					print $cnt . " : " . $thread_id . "(" . $thread_id_exist . ") = " . $thread_title_utf8 . "\n";
 					my $sql = "insert into threads (id, board_name, createtime, title) values ('" . $thread_id . "', '" . $board_name . "', now(), '" . $thread_title_utf8 . "');";
-#					$db->do($sql);
+					$db->do($sql);
 				}
 			}
 			$cnt = $cnt + 1;
