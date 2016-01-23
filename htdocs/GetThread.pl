@@ -54,7 +54,7 @@ if($PUT_tag eq "") {
 	print "[Error]板が指定されていません\n";
 	$ErrorFlag = 1 ;
 } else {
-	my $sql = "select name, host, title from board where name = ?;";
+	my $sql = "select host, title from board where name = ?;";
 	my $sth = $db->prepare($sql);
 	$sth->execute($PUT_tag);
 	my $arr_ref = $sth->fetchrow_arrayref;
