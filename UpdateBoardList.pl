@@ -34,7 +34,7 @@ if ($response->is_success) {
 			my $board_title_utf8 = encode('utf-8', decode('sjis', $board_title));
 
 			if ( grep { $_ eq $board_name } @boardlist ) {
-				$sql = "select count(*) from board where name = '" . $thread_name . "';";
+				$sql = "select count(*) from board where name = '" . $board_name . "';";
 				my $sth = $db->prepare($sql);
 				$sth->execute;
 
