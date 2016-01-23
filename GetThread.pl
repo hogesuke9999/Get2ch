@@ -31,7 +31,7 @@ my $sth_board = $db->prepare($sql_board);
 $sth_board->execute;
 
 while (my $board_arr_ref = $sth_board->fetchrow_arrayref) {
-	my ($board_name, $board_host, $board_title) = @$$board_arr_ref;
+	my ($board_name, $board_host, $board_title) = @$board_arr_ref;
 	print "Name  : " . $board_name  . "\n";
 	print "Host  : " . $board_host  . "\n";
 	print "Title : " . $board_title . "\n";
