@@ -217,3 +217,25 @@ and testtable_flag.userid = '2' where testtable_flag.userid is NULL ;
   5 | e   |    |
   6 | f   |    |
 (3 行)
+
+
+＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー＋ーーーー
+
+get2ch=>
+create table board (
+name             text PRIMARY KEY,
+host             text,
+title            text
+);
+NOTICE:  CREATE TABLE / PRIMARY KEYはテーブル"board"に暗黙的なインデックス"board_pkey"を作成します
+CREATE TABLE
+
+get2ch=>
+create table threads (
+id               bigint PRIMARY KEY,
+board_name       text,
+createtime       timestamp,
+title            text
+);
+NOTICE:  CREATE TABLE / PRIMARY KEYはテーブル"threads"に暗黙的なインデックス"threads_pkey"を作成します
+CREATE TABLE
