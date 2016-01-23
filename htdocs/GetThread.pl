@@ -3,18 +3,29 @@
 use LWP::UserAgent;
 use Encode;
 use CGI;
+use DBI;
 
 my $ua = LWP::UserAgent->new;
 $ua->timeout(10);
 $ua->env_proxy;
 $ua->agent("");
 
+# For PostgreSQL Connect Setting
+our $DB_NAME = "get2ch";
+our $DB_USER = "get2ch";
+our $DB_PASS = "get2chpass";
+our $DB_HOST = "127.0.0.1";
+our $DB_PORT = "5432";
+
 my $ErrorFlag = 0 ;
+
+# DB接続オブジェクトの初期化
+my $db = DBI->connect("dbi:Pg:dbname=$DB_NAME;host=$DB_HOST;port=$DB_PORT","$DB_USER","$DB_PASS") or die "$!\n Error: failed to connect to DB.\n";
 
 # my $URL = "http://daily.2ch.net/test/read.cgi/newsplus/1453205001/-3";
 
-$ThreadListFile = "/opt/Get2ch/ThreadList.conf";
-my $ThreadList = require $ThreadListFile;
+# $ThreadListFile = "/opt/Get2ch/ThreadList.conf";
+# my $ThreadList = require $ThreadListFile;
 # print $ThreadList -> {'newsplus'}{'threadhost'} . "\n";
 # print $ThreadList -> {'newsplus'}{'threadname'} . "\n";
 
@@ -42,12 +53,16 @@ if($PUT_tag eq "") {
 	print "[Error]板が指定されていません\n";
 	$ErrorFlag = 1 ;
 } else {
-	$ThreadHost = $ThreadList -> {$PUT_tag}{'threadhost'};
+	my $sql = "select name, host, title from board where name = ?;";
+	my $sth = $db->prepare($sql);
+	$sth->execute($PUT_tag);
+	my $arr_ref = $sth->fetchrow_arrayref;
+	my ($ThreadHost, $ThreadName) = @$arr_ref;
+
 	if($ThreadHost eq "") {
 		print "[Error]ホストが取得できません\n";
 		$ErrorFlag = 1 ;
 	}
-	$ThreadName = $ThreadList -> {$PUT_tag}{'threadname'};
 	if($ThreadName eq "") {
 		print "[Error]スレッド名が取得できません\n";
 		$ErrorFlag = 1 ;
@@ -92,3 +107,5 @@ if($ErrorFlag == 0) {
 
 # end the HTML
 print $cgi->end_html;
+
+$db->disconnect;
