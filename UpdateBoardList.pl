@@ -48,9 +48,12 @@ if ($response->is_success) {
 					$sql = "update board set host = '" . $board_host . "', title = '" . $board_title_utf8 . "' where name = '" . $board_name . "'";
 				}
 				print "SQL = " . $sql . "\n";
+				$db->do($sql);
 			}
 		}
 	}
 } else {
 	die $response->status_line;
 }
+
+$db->disconnect;
