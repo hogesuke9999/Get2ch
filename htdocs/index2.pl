@@ -127,7 +127,7 @@ if($login_flag == 0) {
 		ON threads.id = checkflag.subjects_id
 		and checkflag.users_id = '" . $user_id . "'
 		where checkflag.flag is NULL
-		order by datetime limit 15;";
+		order by createtime limit 15;";
 	my $sth = $db->prepare($sql);
 	print "SQL = " . $sql . "\n";
 	$sth->execute;
