@@ -49,19 +49,19 @@ while (my $board_arr_ref = $sth_board->fetchrow_arrayref) {
 				my ( $thread_id, $thread_title ) = ( $line =~ /<a href=".*\/(\d+)\/l50">.*:(.*)\(.\d*\)<\/a>/) ;
 #				my $thread_title_utf8 = encode('utf-8', decode('sjis', $thread_title));
 				my $thread_title_utf8 = $thread_title;
-print "ID    = " . $thread_id . "\n";
-print "TITLE = " . $thread_title_utf8 . "\n";
+# print "ID    = " . $thread_id . "\n";
+# print "TITLE = " . $thread_title_utf8 . "\n";
 
-#				my $sql = "select count(*) from threads where id = '" . $thread_id . "';";
-#				my $sth = $db->prepare($sql);
-#				$sth->execute;
+				my $sql = "select count(*) from threads where id = '" . $thread_id . "';";
+				my $sth = $db->prepare($sql);
+				$sth->execute;
 
-#				my $arr_ref = $sth->fetchrow_arrayref;
-#				my ($thread_id_exist) = @$arr_ref;
-#				$sth->finish;
+				my $arr_ref = $sth->fetchrow_arrayref;
+				my ($thread_id_exist) = @$arr_ref;
+				$sth->finish;
 
-#				if ( $thread_id_exist == 0 ) {
-#					print $cnt . " : " . $thread_id . "(" . $thread_id_exist . ") = " . $thread_title_utf8 . "\n";
+				if ( $thread_id_exist == 0 ) {
+					print $cnt . " : " . $thread_id . "(" . $thread_id_exist . ") = " . $thread_title_utf8 . "\n";
 #					my $sql = "insert into threads (id, board_name, createtime, title) values (?, ?, now(), ?);";
 #					my $sth = $db->prepare($sql);
 #					$sth->execute($thread_id, $board_name, $thread_title_utf8);
