@@ -24,7 +24,7 @@ my $db = DBI->connect("dbi:Pg:dbname=$DB_NAME;host=$DB_HOST;port=$DB_PORT", "$DB
 my $ua = LWP::UserAgent->new;
 $ua->timeout(10);
 $ua->env_proxy;
-# $ua->agent("");
+$ua->agent('Mozilla/5.0');
 
 $sql_board = "select name, host, title from board;";
 my $sth_board = $db->prepare($sql_board);
