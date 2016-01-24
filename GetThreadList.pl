@@ -47,7 +47,8 @@ while (my $board_arr_ref = $sth_board->fetchrow_arrayref) {
 print "LINE = " . $line . "\n";
 			if ( $line =~ '^<a href=.*</a>$' ) {
 				my ( $thread_id, $thread_title ) = ( $line =~ /<a href=".*\/(\d+)\/l50">.*: (.*)\(.\d*\)<\/a>/) ;
-				my $thread_title_utf8 = encode('utf-8', decode('sjis', $thread_title));
+#				my $thread_title_utf8 = encode('utf-8', decode('sjis', $thread_title));
+				my $thread_title_utf8 = $thread_title;
 print "ID    = " . $thread_id . "\n";
 print "TITLE = " . $thread_title_utf8 . "\n";
 
