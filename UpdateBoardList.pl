@@ -19,9 +19,10 @@ our $DB_PORT = "5432";
 # DB接続オブジェクトの初期化
 my $db = DBI->connect("dbi:Pg:dbname=$DB_NAME;host=$DB_HOST;port=$DB_PORT","$DB_USER","$DB_PASS") or die "$!\n Error: failed to connect to DB.\n";
 
-my @boardlist = ( 'newsplus', 'mnewsplus', 'bizplus', 'plus' );
+my @boardlist = ( 'newsplus', 'mnewsplus', 'bizplus');
 
-my $bbstable = "http://menu.2ch.net/bbstable.html";
+# my $bbstable = "http://menu.2ch.net/bbstable.html";
+my $bbstable = "http://menu.open2ch.net/bbsmenu.html";
 
 my $response = $ua->get($bbstable);
 
