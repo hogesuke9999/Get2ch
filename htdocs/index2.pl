@@ -134,7 +134,7 @@ if($login_flag == 0) {
 
 	while (my $arr_ref = $sth->fetchrow_arrayref) {
 		my ($TABLE_id, $TABLE_board_name, $TABLE_title) = @$arr_ref;
-		my $URL = "GetThread.pl?id=" . $TABLE_id . "&tag=" . $TABLE_board_name;
+		my $URL = "GetThreadView.pl?id=" . $TABLE_id . "&tag=" . $TABLE_board_name;
 
 		$sql_board = "select title from board where name = ?;";
 		my $sth_board = $db->prepare($sql_board);
