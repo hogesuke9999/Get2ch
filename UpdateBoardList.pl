@@ -29,8 +29,8 @@ my $response = $ua->get($bbstable);
 if ($response->is_success) {
 	my @page = split( '\n', $response->content );
 	foreach my $line ( @page ) {
-		if ( $line =~ '<a href=http://.*</a>' ) {
-			my ( $board_url, $board_title ) = ( $line =~ /<a href=(.*)>(.*)<\/A>$/) ;
+		if ( $line =~ '<A HREF=http://.*</A>' ) {
+			my ( $board_url, $board_title ) = ( $line =~ /<A HREF=(.*)>(.*)<\/A><br>$/) ;
 			my ( $board_host, $board_name ) = ( $board_url =~ /^(.*\/)(.*)\// );
 			my $board_title_utf8 = encode('utf-8', decode('sjis', $board_title));
 
