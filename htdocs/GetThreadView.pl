@@ -98,9 +98,9 @@ if($ErrorFlag == 0) {
 			my ( $message_body ) = ( $line =~ /.*<><>.*<> (.*)$/) ;
 			my $message_body_utf8 = encode('utf-8', decode('sjis', $message_body));
 
-#				print "<p>";
-#				print $message_body_utf8 . "\n";
-#				print "</p>\n";
+			print "<p>";
+			print $message_body_utf8 . "\n";
+			print "</p>\n";
 #			}
 		}
 	} else {
