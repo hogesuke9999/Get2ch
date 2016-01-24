@@ -66,8 +66,8 @@ print "TITLE = " . $thread_title_utf8 . "\n";
 #					$sth->execute($thread_id, $board_name, $thread_title_utf8);
 #				}
 #			}
-#			$cnt = $cnt + 1;
-#		}
+			$cnt = $cnt + 1;
+		}
 	} else {
 		die $response->status_line;
 	}
