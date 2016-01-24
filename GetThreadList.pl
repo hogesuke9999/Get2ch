@@ -65,7 +65,7 @@ while (my $board_arr_ref = $sth_board->fetchrow_arrayref) {
 #					my $sql = "insert into threads (id, board_name, createtime, title) values (?, ?, now(), ?);";
 #					my $sth = $db->prepare($sql);
 #					$sth->execute($thread_id, $board_name, $thread_title_utf8);
-#				}
+				}
 			}
 			$cnt = $cnt + 1;
 		}
