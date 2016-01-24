@@ -46,9 +46,9 @@ while (my $board_arr_ref = $sth_board->fetchrow_arrayref) {
 # <a href="/test/read.cgi/bizplus/1429615860/l50">1: (　´∀｀)ﾏﾀｰﾘ雑談スレ　その６ (328)</a>
 # print "LINE = " . $line . "\n";
 			if ( $line =~ '^<a href=.*</a>$' ) {
-				my ( $thread_id, $thread_title ) = ( $line =~ /<a href=".*\/(\d+)\/l50">.*:(.*)\(.\d*\)<\/a>/) ;
+				my ( $thread_id, $thread_title ) = ( $line =~ /<a href=".*\/(\d+)\/l50">.*: (.*)\(.\d*\)<\/a>/) ;
 #				my $thread_title_utf8 = encode('utf-8', decode('sjis', $thread_title));
-				my $thread_title_utf8 = $thread_title;
+#				my $thread_title_utf8 = $thread_title;
 # print "ID    = " . $thread_id . "\n";
 # print "TITLE = " . $thread_title_utf8 . "\n";
 
@@ -61,10 +61,10 @@ while (my $board_arr_ref = $sth_board->fetchrow_arrayref) {
 				$sth->finish;
 
 				if ( $thread_id_exist == 0 ) {
-					print $cnt . " : " . $thread_id . "(" . $thread_id_exist . ") = " . $thread_title_utf8 . "\n";
-#					my $sql = "insert into threads (id, board_name, createtime, title) values (?, ?, now(), ?);";
-#					my $sth = $db->prepare($sql);
-#					$sth->execute($thread_id, $board_name, $thread_title_utf8);
+					print $cnt . " : " . $thread_id . "(" . $thread_id_exist . ") = " . $thread_title . "\n";
+					my $sql = "insert into threads (id, board_name, createtime, title) values (?, ?, now(), ?);";
+					my $sth = $db->prepare($sql);
+					$sth->execute($thread_id, $board_name, $thread_title);
 				}
 			}
 			$cnt = $cnt + 1;
