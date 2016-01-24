@@ -8,7 +8,7 @@ use DBI;
 my $ua = LWP::UserAgent->new;
 $ua->timeout(10);
 $ua->env_proxy;
-$ua->agent("");
+$ua->agent('Mozilla/5.0');
 
 # For PostgreSQL Connect Setting
 our $DB_NAME = "get2ch";
