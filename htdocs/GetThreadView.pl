@@ -92,17 +92,17 @@ if($ErrorFlag == 0) {
 
 	if ($response->is_success) {
 		my @page = split( '\n', $response->content );
-		foreach my $line ( @page ) {
+#		foreach my $line ( @page ) {
 # print "LINE = " . $line . "<br>\n";
 #			if ( $line =~ '^<dt>1' ) {
-			my ( $message_body ) = ( $line =~ /.*<>.*<>.*<> (.*)<>.*/) ;
+			my ( $message_body ) = ( $page[1] =~ /.*<>.*<>.*<> (.*)<>.*/) ;
 			my $message_body_utf8 = encode('utf-8', decode('sjis', $message_body));
 
 			print "<p>";
 			print $message_body_utf8 . "\n";
 			print "</p>\n";
 #			}
-		}
+#		}
 	} else {
 		die $response->status_line;
 	}
