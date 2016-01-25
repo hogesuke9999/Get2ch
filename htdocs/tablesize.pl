@@ -15,7 +15,7 @@ print $cgi->start_html(-title => 'Tableサイズ・Windowサイズ', -lang => 'j
 
 print $cgi->h1('Tableサイズ・Windowサイズ');
 print "\n";
-
+print "<p>ウィンドウサイズ：<span id=\"WinSize\"></span></p>\n";
 print "<script type=\"text/javascript\">\n";
 print "getWindowSize();\n";
 print "function getWindowSize() {\n";
