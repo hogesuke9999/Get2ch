@@ -30,7 +30,6 @@ print "\n";
 print "<p>ウィンドウサイズ：<span id=\"WinSize\"></span></p>\n";
 print "<script type=\"text/javascript\">\n";
 print "getWindowSize();\n";
-print "}\n";
 print "</script>\n";
 # print "function getWindowSize() {\n";
 # print "	var sW,sH,s;\n";
