@@ -44,7 +44,7 @@ print $cgi->start_html(
 	-style=>{'src' => '/get2ch/css/style.css'}
 );
 
-print $cgi->start_form("post", "index2.pl");
+print $cgi->start_form("post", "index.pl");
 
 # タイトル表示
 print $cgi->h1('2ちゃんねる スレッド一覧');
@@ -181,7 +181,7 @@ if($login_flag == 0) {
 print $cgi->end_form;
 
 print $cgi->hr . "\n";
-print $cgi->a({href=>"index2.pl"}, "再表示");
+print $cgi->a({href=>"index.pl"}, "再表示");
 
 # end the HTML
 print $cgi->end_html;
