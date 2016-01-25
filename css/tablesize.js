@@ -1,4 +1,3 @@
-getWindowSize();
 function getWindowSize() {
 	var sW,sH,s;
 	sW = win dow.innerWidth;

@@ -28,16 +28,16 @@ print $cgi->start_html(
 print $cgi->h1('Tableサイズ・Windowサイズ');
 print "\n";
 print "<p>ウィンドウサイズ：<span id=\"WinSize\"></span></p>\n";
-# print "<script type=\"text/javascript\">\n";
-# print "getWindowSize();\n";
+print "<script type=\"text/javascript\">\n";
+print "getWindowSize();\n";
+print "}\n";
+print "</script>\n";
 # print "function getWindowSize() {\n";
 # print "	var sW,sH,s;\n";
 # print "	sW = window.innerWidth;\n";
 # print "	sH = window.innerHeight;\n";
 # print "	s = \"横幅 = \" + sW + \" / 高さ = \" + sH;\n";
 # print "	document.getElementById(\"WinSize\").innerHTML = s;\n";
-# print "}\n";
-# print "</script>\n";
 
 # end the HTML
 print $cgi->end_html;
