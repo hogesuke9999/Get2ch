@@ -21,7 +21,7 @@ print $cgi->start_html(
 	-script => {
 		-type => 'JAVASCRIPT',
 		-src  => '/get2ch/css/tablesize.js'
-	}
+	};
 );
 
 print $cgi->h1('Tableサイズ・Windowサイズ');
