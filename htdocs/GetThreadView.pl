@@ -81,7 +81,8 @@ if($ErrorFlag == 0) {
 	print "<img src=\"/get2ch/css/Close_M.png\"  width=\"300\" height=\"40\">";
 	print "<img src=\"/get2ch/css/Close_R.png\"                height=\"40\">";
 	print "</a>\n";
-	print "<br>\n";
+	print $cgi->br . "\n";
+	print $cgi->br . "\n";
 
 #	http://uni.open2ch.net/newsplus/dat/1453600222.dat
 	# my $URL = "http://daily.2ch.net/test/read.cgi/newsplus/1453205001/-3";
@@ -106,6 +107,15 @@ if($ErrorFlag == 0) {
 	} else {
 		die $response->status_line;
 	}
+	print $cgi->br . "\n";
+	print "<a href=\"#\" onClick=\"window.close(); return false;\">";
+	print "<img src=\"/get2ch/css/Close_L.png\"                height=\"40\">";
+	print "<img src=\"/get2ch/css/Close_M.png\"  width=\"300\" height=\"40\">";
+	print "<img src=\"/get2ch/css/Close_C.png\"               height=\"40\">";
+	print "<img src=\"/get2ch/css/Close_M.png\"  width=\"300\" height=\"40\">";
+	print "<img src=\"/get2ch/css/Close_R.png\"                height=\"40\">";
+	print "</a>\n";
+
 }
 
 # end the HTML

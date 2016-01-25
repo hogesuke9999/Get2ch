@@ -113,6 +113,7 @@ if($login_flag == 0) {
         print $cgi->submit('button', '送信');
 } else {
 	# ログイン済み
+	print $cgi->br . "\n";
 	print "<a href=\"index.pl\">";
 	print "<img src=\"/get2ch/css/Refresh_L.png\"                height=\"40\">";
 	print "<img src=\"/get2ch/css/Refresh_M.png\"  width=\"300\" height=\"40\">";
@@ -120,7 +121,8 @@ if($login_flag == 0) {
 	print "<img src=\"/get2ch/css/Refresh_M.png\"  width=\"300\" height=\"40\">";
 	print "<img src=\"/get2ch/css/Refresh_R.png\"                height=\"40\">";
 	print "</a>\n";
-	print "<br>\n";
+	print $cgi->br . "\n";
+	print $cgi->br . "\n";
 
 	print "<table border='1'>\n";
 
@@ -166,6 +168,7 @@ if($login_flag == 0) {
 
 	print "</table>\n";
 
+	print $cgi->br . "\n";
 	print "<a href=\"index.pl\">";
 	print "<img src=\"/get2ch/css/Refresh_L.png\"                height=\"40\">";
 	print "<img src=\"/get2ch/css/Refresh_M.png\"  width=\"300\" height=\"40\">";
