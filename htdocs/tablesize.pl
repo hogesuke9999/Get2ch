@@ -19,9 +19,10 @@ print $cgi->start_html(
 	-lang => 'ja',
 	-encoding => 'utf-8',
 	-script => {
+		-language => 'JavaScript',
 		-type => 'JAVASCRIPT',
 		-src  => '/get2ch/css/tablesize.js'
-	};
+	}
 );
 
 print $cgi->h1('Tableサイズ・Windowサイズ');
