@@ -86,6 +86,7 @@ if( $button_name eq "ログアウト") {
 		print "ユーザ名 : " . $user_name . " (" . $user_id . ")\n";
 		print " ";
                 print $cgi->submit('button', 'ログアウト');
+		print $cgi->br;
 		$login_flag = 1;
 	}
 }
