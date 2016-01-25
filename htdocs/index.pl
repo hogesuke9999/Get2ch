@@ -41,7 +41,7 @@ print $cgi->start_html(
 	-title => '2ちゃんねる スレッド一覧',
 	-lang => 'ja',
 	-encoding => 'utf-8',
-	-style=>{'src' => '/get2ch/css/style.css'}
+	-style => {'src' => '/get2ch/css/style.css'}
 );
 
 print $cgi->start_form("post", "index.pl");

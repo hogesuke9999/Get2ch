@@ -20,16 +20,7 @@ print $cgi->start_html(
 	-encoding => 'utf-8',
 	-script => {
 		-type => 'JAVASCRIPT',
-		-code  => '
-			getWindowSize();
-			function getWindowSize() {
-				var sW,sH,s;
-				sW = win dow.innerWidth;
-				sH = window.innerHeight;
-				s = \"横幅 = \" + sW + \" / 高さ = \" + sH;
-				document.getElementById(\"WinSize\").innerHTML = s;
-			};
-		'
+		-src  => '/get2ch/css/tablesize.js'
 	}
 );
 
