@@ -13,7 +13,7 @@ th.ita {
 }
 
 th.thread {
-	width: 800px;
+	width: 700px;
 }
 
 
@@ -26,11 +26,11 @@ td.ita {
 }
 
 td.thread {
-	width: 800px;
+	width: 700px;
 }
 
 div.textOverflow {
-	width: 800px;
+	width: 700px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
