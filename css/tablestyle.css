@@ -7,3 +7,20 @@ table.tablestyle {
 	width: 50%;
 	background-color: #f8dce0;
 }
+
+th.id {
+	width: 100px;
+}
+
+th.subject {
+	width: 300px;
+}
+
+
+td.id {
+	width: 100px;
+}
+
+td.subject {
+	width: 300px;
+}
