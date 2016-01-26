@@ -39,5 +39,26 @@ print "</script>\n";
 # print "	s = \"横幅 = \" + sW + \" / 高さ = \" + sH;\n";
 # print "	document.getElementById(\"WinSize\").innerHTML = s;\n";
 
+print "<table>\n";
+
+print "	<tr>\n";
+print "		<th>\n";
+print "ID\n";
+print "		</th>\n";
+print "		<th>\n";
+print "件名\n";
+print "		</th>\n";
+print "</tr>\n";
+print "	<tr>\n";
+print "		<td>\n";
+print "ID\n";
+print "		</td>\n";
+print "		<td>\n";
+print "件名\n";
+print "		</td>\n";
+print "</tr>\n";
+
+print "</table>\n";
+
 # end the HTML
 print $cgi->end_html;
