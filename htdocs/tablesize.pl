@@ -39,7 +39,7 @@ print "</script>\n";
 # print "	s = \"横幅 = \" + sW + \" / 高さ = \" + sH;\n";
 # print "	document.getElementById(\"WinSize\").innerHTML = s;\n";
 
-print "<table border=1>\n";
+print "<table border=1 style=\"tablestyle\">\n";
 
 print "	<tr>\n";
 print "		<th>\n";

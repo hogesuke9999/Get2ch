@@ -2,3 +2,8 @@ body {
 	background-color:#66ffcc;
 	font-size:18px;
 }
+
+table.tablestyle {
+	width: 50%;
+	background-color: #f8dce0;
+}
