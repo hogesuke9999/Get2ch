@@ -12,9 +12,9 @@ th.ita {
 	width: 300px;
 }
 
-th.thread {
-	width: 900px;
-}
+# th.thread {
+# 	width: 900px;
+# }
 
 
 td.id {
@@ -25,12 +25,12 @@ td.ita {
 	width: 300px;
 }
 
-td.thread {
-	width: 900px;
-}
+# td.thread {
+# 	width: 900px;
+# }
 
 div.textOverflow {
-	width: 900px;
+# 	width: 900px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
