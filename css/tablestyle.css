@@ -12,15 +12,15 @@ th.id {
 	width: 400px;
 }
 
-th.subject {
-	width: 300px;
-}
+# th.subject {
+# 	width: 300px;
+# }
 
 
 td.id {
 	width: 400px;
 }
 
-td.subject {
-	width: 300px;
-}
+# td.subject {
+# 	width: 300px;
+# }
