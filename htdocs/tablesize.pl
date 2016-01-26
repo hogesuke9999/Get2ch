@@ -18,6 +18,7 @@ print $cgi->start_html(
 	-title => 'Tableサイズ・Windowサイズ',
 	-lang => 'ja',
 	-encoding => 'utf-8',
+	-style => {'src' => '/get2ch/css/tablestyle.css'},
 	-script => {
 		-language => 'JavaScript',
 		-type => 'JAVASCRIPT',
