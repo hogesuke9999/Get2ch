@@ -25,12 +25,12 @@ td.ita {
 	width: 400px;
 }
 
-# td.thread {
-# 	width: 900px;
-# }
+td.thread {
+	width: 600px;
+}
 
 div.textOverflow {
-# 	width: 900px;
+	width: 600px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
