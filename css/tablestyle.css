@@ -9,7 +9,7 @@ table.tablestyle {
 }
 
 th.id {
-	width: 100px;
+	width: 400px;
 }
 
 th.subject {
@@ -18,7 +18,7 @@ th.subject {
 
 
 td.id {
-	width: 100px;
+	width: 400px;
 }
 
 td.subject {
