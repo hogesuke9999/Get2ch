@@ -41,21 +41,19 @@ print "</script>\n";
 
 print "<table border=1 class=\"tablestyle\">\n";
 
-print "	<tr>\n";
-print "		<th>\n";
-print "ID\n";
-print "		</th>\n";
-print "		<th>\n";
-print "件名\n";
-print "		</th>\n";
+print "<tr>\n";
+print "<th>ID</th>\n";
+print "<th>件名</th>\n";
 print "</tr>\n";
-print "	<tr>\n";
-print "		<td>\n";
-print "ID\n";
-print "		</td>\n";
-print "		<td>\n";
-print "件名\n";
-print "		</td>\n";
+
+print "<tr>\n";
+print "<td>あああああ</td>\n";
+print "<td>あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお</td>\n";
+print "</tr>\n";
+
+print "<tr>\n";
+print "<td>あああああ</td>\n";
+print "<td>あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお</td>\n";
 print "</tr>\n";
 
 print "</table>\n";
