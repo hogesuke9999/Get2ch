@@ -9,8 +9,9 @@ function getWindowSize() {
 		document.write("横長です");
 	} else {
 		document.write("縦長です");
-		var stylesheet = document.styleSheets.item(1);
-		stylesheet.insertRule( { "body"  { background-color: #f8dce0; } });
+
+		var stylesheet = document.styleSheets.item(0);
+		stylesheet.insertRule("body { background-color:#f8dce0; }", stylesheet.cssRules.length);
 	};
 };
 
