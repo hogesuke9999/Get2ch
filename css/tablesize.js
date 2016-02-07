@@ -9,24 +9,20 @@ function getWindowSize() {
 		document.write("横長です");
 
 		var stylesheet = document.styleSheets.item(0);
-		stylesheet.insertRule("
-			body { background-color: #66ffcc; }
-			th.id {width: 200px; }
-			th.subject {width: 400px; }
-			td.id { width: 200px; }
-			td.subject { width: 400px; }
-		", stylesheet.cssRules.length);
+		stylesheet.insertRule("body { background-color: #66ffcc; }", stylesheet.cssRules.length);
+		stylesheet.insertRule("th.id { width: 200px; }", stylesheet.cssRules.length);
+		stylesheet.insertRule("th.subject { width: 400px; }", stylesheet.cssRules.length);
+		stylesheet.insertRule("td.id { width: 200px; }", stylesheet.cssRules.length);
+		stylesheet.insertRule("td.subject { width: 400px; }", stylesheet.cssRules.length);
 	} else {
 		document.write("縦長です");
 
 		var stylesheet = document.styleSheets.item(0);
-		stylesheet.insertRule("
-			body { background-color: #f8dce0; }
-			th.id {width: 200px; }
-			th.subject {width: 400px; }
-			td.id { width: 200px; }
-			td.subject { width: 400px; }
-		", stylesheet.cssRules.length);
+		stylesheet.insertRule("body { background-color: #f8dce0; }", stylesheet.cssRules.length);
+		stylesheet.insertRule("th.id { width: 200px; }", stylesheet.cssRules.length);
+		stylesheet.insertRule("th.subject { width: 400px; }", stylesheet.cssRules.length);
+		stylesheet.insertRule("td.id { width: 200px; }", stylesheet.cssRules.length);
+		stylesheet.insertRule("td.subject { width: 400px; }", stylesheet.cssRules.length);
 	};
 };
 
