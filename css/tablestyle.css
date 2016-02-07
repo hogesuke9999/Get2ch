@@ -4,23 +4,22 @@ body {
 }
 
 table.tablestyle {
-	width: 50%;
+	width: 600px;
 	background-color: #f8dce0;
 }
 
 th.id {
-	width: 400px;
+	width: 200px;
 }
 
-# th.subject {
-# 	width: 300px;
-# }
-
+th.subject {
+	width: 400px;
+}
 
 td.id {
-	width: 400px;
+	width: 200px;
 }
 
-# td.subject {
-# 	width: 300px;
-# }
+td.subject {
+	width: 400px;
+}
