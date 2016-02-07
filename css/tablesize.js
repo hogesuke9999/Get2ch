@@ -13,8 +13,6 @@ function getWindowSize() {
 		tW1 = sW * 0.9;
 		tW2 = tW1 - 200;
 
-		 {
-
 		var stylesheet = document.styleSheets.item(0);
 		stylesheet.insertRule("body { background-color: #66ffcc; }",         stylesheet.cssRules.length);
 		stylesheet.insertRule("table.tablestyle { width: " + tW1 + "px; }",  stylesheet.cssRules.length);
