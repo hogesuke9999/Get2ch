@@ -1,6 +1,6 @@
 function getWindowSize() {
 	var sW,sH,s;
-	var tW;
+	var tW1,tW2;
 
 	sW = window.innerWidth;
 	sH = window.innerHeight;
@@ -10,23 +10,28 @@ function getWindowSize() {
 	if(sW > sH) {
 		document.write("横長です");
 
-		tW = sW * 0.9 - 200 ;
+		tW1 = sW * 0.9;
+		tW2 = tW1 - 200;
+
+		 {
 
 		var stylesheet = document.styleSheets.item(0);
-		stylesheet.insertRule("body { background-color: #66ffcc; }", stylesheet.cssRules.length);
-		stylesheet.insertRule("th.id { width: 200px; }", stylesheet.cssRules.length);
-		stylesheet.insertRule("th.subject { width: " + tW + "px; }", stylesheet.cssRules.length);
-		stylesheet.insertRule("td.id { width: 200px; }", stylesheet.cssRules.length);
-		stylesheet.insertRule("td.subject { width: " + tW + "px; }", stylesheet.cssRules.length);
+		stylesheet.insertRule("body { background-color: #66ffcc; }",         stylesheet.cssRules.length);
+		stylesheet.insertRule("table.tablestyle { width: " + tW1 + "px; }",  stylesheet.cssRules.length);
+		stylesheet.insertRule("th.id { width: 200px; }",                     stylesheet.cssRules.length);
+		stylesheet.insertRule("th.subject { width: " + tW2 + "px; }",        stylesheet.cssRules.length);
+		stylesheet.insertRule("td.id { width: 200px; }",                     stylesheet.cssRules.length);
+		stylesheet.insertRule("td.subject { width: " + tW2 + "px; }",        stylesheet.cssRules.length);
 	} else {
 		document.write("縦長です");
 
 		var stylesheet = document.styleSheets.item(0);
-		stylesheet.insertRule("body { background-color: #f8dce0; }", stylesheet.cssRules.length);
-		stylesheet.insertRule("th.id { width: 200px; }", stylesheet.cssRules.length);
-		stylesheet.insertRule("th.subject { width: " + tW + "px; }", stylesheet.cssRules.length);
-		stylesheet.insertRule("td.id { width: 200px; }", stylesheet.cssRules.length);
-		stylesheet.insertRule("td.subject { width: " + tW + "px; }", stylesheet.cssRules.length);
+		stylesheet.insertRule("body { background-color: #f8dce0; }",         stylesheet.cssRules.length);
+		stylesheet.insertRule("table.tablestyle { width: " + tW1 + "px; }",  stylesheet.cssRules.length);
+		stylesheet.insertRule("th.id { width: 200px; }",                     stylesheet.cssRules.length);
+		stylesheet.insertRule("th.subject { width: " + tW2 + "px; }",        stylesheet.cssRules.length);
+		stylesheet.insertRule("td.id { width: 200px; }",                     stylesheet.cssRules.length);
+		stylesheet.insertRule("td.subject { width: " + tW2 + "px; }",        stylesheet.cssRules.length);
 	};
 };
 
