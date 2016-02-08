@@ -6,6 +6,7 @@ body {
 table.tablestyle {
 	width: 600px;
 	background-color: #f8dce0;
+	margin-right: 10px; 
 }
 
 th.id {
