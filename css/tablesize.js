@@ -13,14 +13,14 @@ function getWindowSize() {
 
 	if( tW1 > 600 ) {
 		tW2 = tW1 - 200;
-		document.write("表の横幅を " + tW1 + " にします<br>");
-		document.write("セルの横幅を " + tW2 + " にします<br>");
+//	document.write("表の横幅を " + tW1 + " にします<br>");
+//  document.write("セルの横幅を " + tW2 + " にします<br>");
 		stylesheet.insertRule("body { background-color: #66ffcc; }",         stylesheet.cssRules.length);
 	} else {
 		tW1 = 600;
 		tW2 = 400;
-		document.write("表の横幅を " + tW1 + " にします(固定)<br>");
-		document.write("セルの横幅を " + tW2 + " にします(固定)<br>");
+//  document.write("表の横幅を " + tW1 + " にします(固定)<br>");
+//	document.write("セルの横幅を " + tW2 + " にします(固定)<br>");
 		stylesheet.insertRule("body { background-color: #f8dce0; }",         stylesheet.cssRules.length);
 	};
 
@@ -41,7 +41,8 @@ window.addEventListener('resize', function (event) {
   }
   resizeTimer = setTimeout(function () {
     console.log('resized');
-		alert('ウィンドウがリサイズされました');
+		getWindowSize():
+//		alert('ウィンドウがリサイズされました');
   }, interval);
 });
 
