@@ -41,7 +41,7 @@ window.addEventListener('resize', function (event) {
   }
   resizeTimer = setTimeout(function () {
     console.log('resized');
-		getWindowSize():
+		getWindowSize();
 //		alert('ウィンドウがリサイズされました');
   }, interval);
 });
