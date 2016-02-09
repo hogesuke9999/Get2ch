@@ -4,7 +4,7 @@ function getWindowSize() {
 
 	sW = window.innerWidth;
 	sH = window.innerHeight;
-	s = ;
+
 	document.write("横 = " + sW + " / 高さ = " + sH + "<br>");
 
 	tW1 = sW - 10 - 10;
