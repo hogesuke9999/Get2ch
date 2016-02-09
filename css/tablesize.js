@@ -4,20 +4,20 @@ function getWindowSize() {
 
 	sW = window.innerWidth;
 	sH = window.innerHeight;
-	s = "横幅 = " + sW + " / 高さ = " + sH;
-        document.write(s);
-	document.write("<br>");
-	if(sW > sH) {
-		document.write("横長です");
-	} else {
-		document.write("縦長です");
-	};
+	s = ;
+	document.write("横 = " + sW + " / 高さ = " + sH + "<br>");
 
 	tW1 = sW - 10 - 10;
+
 	if( tW1 > 600 ) {
 		tW2 = tW1 - 200;
+		document.write("表の横幅を " + tW1 + " にします<br>");
+		document.write("セルの横幅を " + tW2 + " にします<br>");
 	} else {
+		tW1 = 600;
 		tW2 = 400;
+		document.write("表の横幅を " + tW1 + " にします(固定)<br>");
+		document.write("セルの横幅を " + tW2 + " にします(固定)<br>");
 	};
 
 	var stylesheet = document.styleSheets.item(0);
