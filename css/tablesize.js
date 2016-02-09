@@ -7,7 +7,6 @@ function getWindowSize() {
 
 	document.write("横 = " + sW + " / 高さ = " + sH + "<br>");
 
-	var stylesheet = document.styleSheets.item(0);
 
 	tW1 = sW - 10 - 10;
 
@@ -15,12 +14,14 @@ function getWindowSize() {
 		tW2 = tW1 - 200;
 //	document.write("表の横幅を " + tW1 + " にします<br>");
 //  document.write("セルの横幅を " + tW2 + " にします<br>");
+		var stylesheet = document.styleSheets.item(0);
 		stylesheet.insertRule("body { background-color: #66ffcc; }",         stylesheet.cssRules.length);
 	} else {
 		tW1 = 600;
 		tW2 = 400;
 //  document.write("表の横幅を " + tW1 + " にします(固定)<br>");
 //	document.write("セルの横幅を " + tW2 + " にします(固定)<br>");
+		var stylesheet = document.styleSheets.item(0);
 		stylesheet.insertRule("body { background-color: #f8dce0; }",         stylesheet.cssRules.length);
 	};
 
