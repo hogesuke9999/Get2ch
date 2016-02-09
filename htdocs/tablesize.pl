@@ -29,9 +29,6 @@ print $cgi->start_html(
 print $cgi->h1('Tableサイズ・Windowサイズ');
 print "\n";
 # print "<p>ウィンドウサイズ：<span id=\"WinSize\"></span></p>\n";
-print "<script type=\"text/javascript\">\n";
-print "getWindowSize();\n";
-print "</script>\n";
 # print "function getWindowSize() {\n";
 # print "	var sW,sH,s;\n";
 # print "	sW = window.innerWidth;\n";
@@ -59,4 +56,8 @@ print "</tr>\n";
 print "</table>\n";
 
 # end the HTML
+print "<script type=\"text/javascript\">\n";
+print "getWindowSize();\n";
+print "</script>\n";
+
 print $cgi->end_html;
