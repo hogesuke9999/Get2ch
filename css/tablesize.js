@@ -29,6 +29,20 @@ function getWindowSize() {
 	stylesheet.insertRule("td.subject { width: " + tW2 + "px; }",        stylesheet.cssRules.length);
 };
 
+var resizeTimer;
+var interval = Math.floor(1000 / 60 * 10);
+
+window.addEventListener('resize', function (event) {
+  console.log('resizing');
+  if (resizeTimer !== false) {
+    clearTimeout(resizeTimer);
+  }
+  resizeTimer = setTimeout(function () {
+    console.log('resized');
+    // do something ...
+  }, interval);
+});
+
 function getAllStyleRule() {
 	var styleSheets = document.styleSheets;
 	var str = '';
