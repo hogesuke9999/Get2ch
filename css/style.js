@@ -48,6 +48,7 @@ function resizeTableSize() {
 	stylesheet.insertRule("th.thread { width: " + tW3 + "px; }",					stylesheet.cssRules.length);
 	stylesheet.insertRule("td.thread { width: " + tW3 + "px; }",					stylesheet.cssRules.length);
 	stylesheet.insertRule("div.textOverflow { width: " + tW3 + "px; }",	stylesheet.cssRules.length);
+};
 
 var resizeTimer;
 var interval = Math.floor(1000 / 60 * 10);
