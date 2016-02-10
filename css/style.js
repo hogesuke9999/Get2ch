@@ -1,7 +1,7 @@
 function resizeTableSize() {
 	var tW1,tW2;
 
-// 画面の横幅のサイズ取得
+	// 画面の横幅のサイズ取得
 	var sW = window.innerWidth;
 	// 画面の縦幅のサイズ取得
 	var sH = window.innerHeight;

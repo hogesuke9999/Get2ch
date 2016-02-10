@@ -41,11 +41,7 @@ print $cgi->start_html(
 	-lang => 'ja',
 	-encoding => 'utf-8',
 	-style => {'src' => '/get2ch/css/style.css'}
-	-script => {
-		-language => 'JavaScript',
-		-type => 'JAVASCRIPT',
-		-src  => '/get2ch/css/style.js'
-	}
+	-script => { -language => 'JavaScript', -type => 'JAVASCRIPT', -src  => '/get2ch/css/style.js'}
 );
 
 print $cgi->start_form("post", "index.pl");
