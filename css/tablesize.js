@@ -1,34 +1,46 @@
 function getWindowSize() {
-	var sW,sH,s;
 	var tW1,tW2;
 
-	sW = window.innerWidth;
-	sH = window.innerHeight;
+// 画面の横幅のサイズ取得
+	var sW = window.innerWidth;
+	// 画面の縦幅のサイズ取得
+	var sH = window.innerHeight;
 
-	document.write("横 = " + sW + " / 高さ = " + sH + "<br>");
+//	document.write("横 = " + sW + " / 高さ = " + sH + "<br>");
 
 	var stylesheet = document.styleSheets.item(0);
 
-	tW1 = sW - 10 - 10;
+	if( sW > 640 ) {
+		// テーブルの横幅は画面サイズの左余白10pxと右余白10pxの残りすべてを割り当てる
+		tW0 = sW - 10 - 10;
 
-	if( tW1 > 600 ) {
-		tW2 = tW1 - 200;
-//	document.write("表の横幅を " + tW1 + " にします<br>");
-//  document.write("セルの横幅を " + tW2 + " にします<br>");
+		// IDセルの横幅は200pxを割り当てる
+		tW1 = 200;
+
+		// subjectセルの横幅はテーブルサイズからIDセルの200pxを除いた残りすべてを割り当てる
+		tW2 = tW0 - 200;
+
+		// 画面背景色を指定(#66ffcc)
 		stylesheet.insertRule("body { background-color: #66ffcc; }",         stylesheet.cssRules.length);
 	} else {
-		tW1 = 600;
+		// テーブルの横幅はIDセルの横幅の200pxとsubjectセルの横幅の合計600pxを割り当てる
+		tW0 = 600;
+
+		// IDセルの横幅は200pxを割り当てる
+		tW1 = 200;
+
+		// subjectセルの横幅は200pxを割り当てる
 		tW2 = 400;
-//  document.write("表の横幅を " + tW1 + " にします(固定)<br>");
-//	document.write("セルの横幅を " + tW2 + " にします(固定)<br>");
+
+		// 画面背景色を指定(#f8dce0)
 		stylesheet.insertRule("body { background-color: #f8dce0; }",         stylesheet.cssRules.length);
 	};
 
-	stylesheet.insertRule("table.tablestyle { width: " + tW1 + "px; }",  stylesheet.cssRules.length);
-	stylesheet.insertRule("th.id { width: 200px; }",                     stylesheet.cssRules.length);
-	stylesheet.insertRule("th.subject { width: " + tW2 + "px; }",        stylesheet.cssRules.length);
-	stylesheet.insertRule("td.id { width: 200px; }",                     stylesheet.cssRules.length);
-	stylesheet.insertRule("td.subject { width: " + tW2 + "px; }",        stylesheet.cssRules.length);
+	stylesheet.insertRule("table.tablestyle { width: " + tW0 + "px; }", stylesheet.cssRules.length);
+	stylesheet.insertRule("th.id { width: " + tW1 + "px; }",                stylesheet.cssRules.length);
+	stylesheet.insertRule("td.id { width: " + tW1 + "px; }",                stylesheet.cssRules.length);
+	stylesheet.insertRule("th.subject { width: " + tW2 + "px; }",         stylesheet.cssRules.length);
+	stylesheet.insertRule("td.subject { width: " + tW2 + "px; }",         stylesheet.cssRules.length);
 };
 
 var resizeTimer;
@@ -41,7 +53,6 @@ window.addEventListener('resize', function (event) {
   }
   resizeTimer = setTimeout(function () {
     console.log('resized');
-		getWindowSize('');
-//		alert('ウィンドウがリサイズされました');
+		getWindowSize();
   }, interval);
 });
