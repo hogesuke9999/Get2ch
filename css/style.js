@@ -40,14 +40,14 @@ function resizeTableSize() {
 		stylesheet.insertRule("body { background-color: #f8dce0; }",         stylesheet.cssRules.length);
 	};
 
-	stylesheet.insertRule("table.tablestyle { width: " + tW0 + "px; }", stylesheet.cssRules.length);
-	stylesheet.insertRule("th.id { width: " + tW1 + "px; }",                stylesheet.cssRules.length);
-	stylesheet.insertRule("td.id { width: " + tW1 + "px; }",                stylesheet.cssRules.length);
-	stylesheet.insertRule("th.ita { width: " + tW2 + "px; }",               stylesheet.cssRules.length);
-	stylesheet.insertRule("td.ita { width: " + tW2 + "px; }",               stylesheet.cssRules.length);
-	stylesheet.insertRule("th.thread { width: " + tW3 + "px; }",         stylesheet.cssRules.length);
-	stylesheet.insertRule("td.thread { width: " + tW3 + "px; }",         stylesheet.cssRules.length);
-};
+	stylesheet.insertRule("table.tablestyle { width: " + tW0 + "px; }",	stylesheet.cssRules.length);
+	stylesheet.insertRule("th.id { width: " + tW1 + "px; }",								stylesheet.cssRules.length);
+	stylesheet.insertRule("td.id { width: " + tW1 + "px; }",								stylesheet.cssRules.length);
+	stylesheet.insertRule("th.ita { width: " + tW2 + "px; }",								stylesheet.cssRules.length);
+	stylesheet.insertRule("td.ita { width: " + tW2 + "px; }",								stylesheet.cssRules.length);
+	stylesheet.insertRule("th.thread { width: " + tW3 + "px; }",					stylesheet.cssRules.length);
+	stylesheet.insertRule("td.thread { width: " + tW3 + "px; }",					stylesheet.cssRules.length);
+	stylesheet.insertRule("div.textOverflow { width: " + tW3 + "px; }",	stylesheet.cssRules.length);
 
 var resizeTimer;
 var interval = Math.floor(1000 / 60 * 10);
