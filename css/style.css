@@ -4,6 +4,11 @@ body {
 	line-height:18px;
 }
 
+table.tablestyle {
+	width: 1200px;
+	margin-right: 10px;
+}
+
 th.id {
 	width: 100px;
 }
