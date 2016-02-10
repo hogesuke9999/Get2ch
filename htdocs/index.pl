@@ -39,7 +39,7 @@ print $cgi->start_html(
 	-encoding => 'utf-8',
 	-style => {'src' => '/get2ch/css/style.css'},
 	-script => { -language => 'JavaScript', -type => 'JAVASCRIPT', -src  => '/get2ch/css/style.js'},
-	-meta=>{'viewport'=>'width=device-width, height=device-height, initial-scale=1'},
+	-meta=>{'viewport'=>'initial-scale=1'},
 );
 
 print $cgi->start_form("post", "index.pl");
