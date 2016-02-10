@@ -8,30 +8,30 @@ function resizeTableSize() {
 
 	var stylesheet = document.styleSheets.item(0);
 
-	if( sW > 1200 ) {
+	if( sW > 1000 ) {
 		// テーブルの横幅は画面サイズの左余白10pxと右余白10pxの残りすべてを割り当てる
 		tW0 = sW - 10 - 10;
 
 		// IDセルの横幅は100pxを割り当てる
 		tW1 = 100;
 
-		// itaセルの横幅は400pxを割り当てる
-		tW2 = 400;
+		// itaセルの横幅は200pxを割り当てる
+		tW2 = 200;
 
-		// threadセルの横幅はIDセルの横幅(100px)とitaセルの横幅(400px)を除いた残りすべてを割り当てる
-		tW3 = tW0 - 100 - 400;
+		// threadセルの横幅はIDセルの横幅(100px)とitaセルの横幅(200px)を除いた残りすべてを割り当てる
+		tW3 = tW0 - 100 - 200;
 
 		// 画面背景色を指定(#66ffcc)
 		stylesheet.insertRule("body { background-color: #66ffcc; }",         stylesheet.cssRules.length);
 	} else {
-		// テーブルの横幅はIDセルの横幅(100px)とitaセルの横幅(400px)とthreadセルの横幅(700px)の横幅の合計1200pxを割り当てる
-		tW0 = 100 + 400 + 700;
+		// テーブルの横幅はIDセルの横幅(100px)とitaセルの横幅(200px)とthreadセルの横幅(700px)の横幅の合計1200pxを割り当てる
+		tW0 = 100 + 200 + 700;
 
 		// IDセルの横幅は100pxを割り当てる
 		tW1 = 100;
 
-		// itaセルの横幅は400pxを割り当てる
-		tW2 = 400;
+		// itaセルの横幅は200pxを割り当てる
+		tW2 = 200;
 
 		// threadセルの横幅は700pxを割り当てる
 		tW3 = 700;

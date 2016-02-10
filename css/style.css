@@ -5,7 +5,7 @@ body {
 }
 
 table.tablestyle {
-	width: 1200px;
+	width: 1000px;
 	margin-right: 10px;
 }
 
@@ -14,7 +14,7 @@ th.id {
 }
 
 th.ita {
-	width: 400px;
+	width: 200px;
 }
 
 th.thread {
@@ -27,7 +27,7 @@ td.id {
 }
 
 td.ita {
-	width: 400px;
+	width: 200px;
 }
 
 td.thread {
