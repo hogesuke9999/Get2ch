@@ -1,4 +1,4 @@
--D, --no-createdb
+﻿-D, --no-createdb
     The new user will not be allowed to create databases. This is the default.
 -I, --no-inherit
     The new role will not automatically inherit privileges of roles it is a member of.
@@ -11,13 +11,13 @@
     The new user will not be a superuser. This is the default.
 
 -bash-4.2$ createuser --no-createdb --pwprompt --no-createrole --no-superuser get2ch
-新しいロールのためのパスワード: get2chpass
-もう一度入力してください： get2chpass
+新しいロールのためのパスワード: (パスワード)
+もう一度入力してください： (パスワード)
 
 -bash-4.2$ createdb --encoding=utf8 --owner=get2ch get2ch
 
 [admin@DGsrv04 Get2ch]$ psql -U get2ch -h 127.0.0.1 -W get2ch
-ユーザ get2ch のパスワード: get2chpass
+ユーザ get2ch のパスワード: (パスワード)
 psql (9.2.14)
 "help" でヘルプを表示します.
 
