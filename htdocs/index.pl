@@ -29,7 +29,7 @@ my $cgi = CGI->new;
 # create the HTTP header
 print $cgi->header(
 	-charset => "utf-8",
-	-cookie => $cgi->cookie( -name=>'CGISESSID', -value=>$cgi_session->id() )
+	-cookie => $cgi->cookie(-name=>'CGISESSID', -value=>$cgi_session->id())
 );
 
 # start the HTML
@@ -37,7 +37,7 @@ print $cgi->start_html(
 	-title => '2ちゃんねる スレッド一覧',
 	-lang => 'ja',
 	-encoding => 'utf-8',
-	-style => {'src' => '/get2ch/css/style.css'}
+	-style => {'src' => '/get2ch/css/style.css'},
 	-script => { -language => 'JavaScript', -type => 'JAVASCRIPT', -src  => '/get2ch/css/style.js'}
 );
 
