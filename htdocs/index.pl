@@ -16,13 +16,9 @@ our $DB_PORT = "5432";
 my $user_name, $user_pass, $user_id ;
 my $login_flag = 0;
 
-# $ThreadListFile = "/opt/Get2ch/ThreadList.conf";
-# my $ThreadList = require $ThreadListFile;
-# print $ThreadList -> {'newsplus'}{'threadhost'} . "\n";
-# print $ThreadList -> {'newsplus'}{'threadname'} . "\n";
-
 # DB接続オブジェクトの初期化
-my $db = DBI->connect("dbi:Pg:dbname=$DB_NAME;host=$DB_HOST;port=$DB_PORT","$DB_USER","$DB_PASS") or die "$!\n Error: failed to connect to DB.\n";
+my $db = DBI->connect("dbi:Pg:dbname=$DB_NAME;host=$DB_HOST;port=$DB_PORT","$DB_USER","$DB_PASS")
+ or die "$!\n Error: failed to connect to DB.\n";
 
 # CGIオブジェクトの初期化
 my $cgi_session = new CGI::Session("driver:File", undef, {Directory=>'/tmp'});
@@ -33,7 +29,10 @@ my $cgi = CGI->new;
 # create the HTTP header
 print $cgi->header(
 	-charset => "utf-8",
-	-cookie => $cgi->cookie(-name=>'CGISESSID', -value=>$cgi_session->id())
+	-cookie => $cgi->cookie(
+			-name=>'CGISESSID',
+			-value=>$cgi_session->id()
+	)
 );
 
 # start the HTML
@@ -42,6 +41,11 @@ print $cgi->start_html(
 	-lang => 'ja',
 	-encoding => 'utf-8',
 	-style => {'src' => '/get2ch/css/style.css'}
+	-script => {
+		-language => 'JavaScript',
+		-type => 'JAVASCRIPT',
+		-src  => '/get2ch/css/style.js'
+	}
 );
 
 print $cgi->start_form("post", "index.pl");
@@ -139,7 +143,6 @@ if($login_flag == 0) {
 		where checkflag.flag is NULL
 		order by createtime limit 15;";
 	my $sth = $db->prepare($sql);
-#	print "SQL = " . $sql . "\n";
 	$sth->execute;
 
 	while (my $arr_ref = $sth->fetchrow_arrayref) {
@@ -155,10 +158,8 @@ if($login_flag == 0) {
 		print "<tr>\n";
 		print "<td class=\"id\">" . $TABLE_id . "</td>\n";
 		print "<td class=\"ita\">" . $TABLE_board_title . "</td>\n";
-#		print "<td class=\"ita\">" . $TABLE_board_title . "(" . $TABLE_board_name . ")</td>\n";
 		print "<td class=\"thread\"><div class=\"textOverflow\">" . $cgi->a({href=>$URL, target=>"_blank"}, $TABLE_title) . "</div></td>\n";
 		print "</tr>\n";
-
 
 		my $sql_w = "insert into checkflag (subjects_id, subjects_tag, users_id, flag, checkdate)
 			values('" . $TABLE_id . "', '" . $TABLE_board_name . "', '" . $user_id . "', '1', now());";
@@ -180,8 +181,10 @@ if($login_flag == 0) {
 
 print $cgi->end_form;
 
-print $cgi->hr . "\n";
-print $cgi->a({href=>"index.pl"}, "再表示");
+# テーブルサイズ調整用Javascript
+print "<script type=\"text/javascript\">\n";
+print "resizeTableSize();\n";
+print "</script>\n";
 
 # end the HTML
 print $cgi->end_html;
