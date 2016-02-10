@@ -48,6 +48,8 @@ function resizeTableSize() {
 	stylesheet.insertRule("th.thread { width: " + tW3 + "px; }",					stylesheet.cssRules.length);
 	stylesheet.insertRule("td.thread { width: " + tW3 + "px; }",					stylesheet.cssRules.length);
 	stylesheet.insertRule("div.textOverflow { width: " + tW3 + "px; }",	stylesheet.cssRules.length);
+
+  console.log(tW0 + " / " + tW1 + " / " + tW2 + " / " + tW3);
 };
 
 var resizeTimer;
