@@ -121,7 +121,7 @@ if($login_flag == 0) {
 	print $cgi->br . "\n";
 	print $cgi->br . "\n";
 
-	print "<table border='1'>\n";
+	print "<table border='1' class=\"tablestyle\">\n";
 
 	print "<tr>\n";
 	print "<th class=\"id\">ID</th>\n";
