@@ -29,10 +29,7 @@ my $cgi = CGI->new;
 # create the HTTP header
 print $cgi->header(
 	-charset => "utf-8",
-	-cookie => $cgi->cookie(
-			-name=>'CGISESSID',
-			-value=>$cgi_session->id()
-	)
+	-cookie => $cgi->cookie( -name=>'CGISESSID', -value=>$cgi_session->id() )
 );
 
 # start the HTML
