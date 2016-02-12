@@ -75,11 +75,11 @@ if($ErrorFlag == 0) {
 #	print "<br>\n";
 
 	print "<a href=\"#\" onClick=\"window.close(); return false;\">";
-	print "<img src=\"/get2ch/css/Close_L.png\"                height=\"40\">";
-	print "<img src=\"/get2ch/css/Close_M.png\"  width=\"300\" height=\"40\">";
-	print "<img src=\"/get2ch/css/Close_C.png\"               height=\"40\">";
-	print "<img src=\"/get2ch/css/Close_M.png\"  width=\"300\" height=\"40\">";
-	print "<img src=\"/get2ch/css/Close_R.png\"                height=\"40\">";
+	print "<img src=\"/get2ch/css/Close_L.png\" class=\"buttom_L\">";
+	print "<img src=\"/get2ch/css/Close_M.png\" class=\"buttom_L\">";
+	print "<img src=\"/get2ch/css/Close_C.png\" class=\"buttom_L\">";
+	print "<img src=\"/get2ch/css/Close_M.png\" class=\"buttom_L\">";
+	print "<img src=\"/get2ch/css/Close_R.png\" class=\"buttom_L\">";
 	print "</a>\n";
 	print $cgi->br . "\n";
 	print $cgi->br . "\n";
@@ -109,11 +109,11 @@ if($ErrorFlag == 0) {
 	}
 	print $cgi->br . "\n";
 	print "<a href=\"#\" onClick=\"window.close(); return false;\">";
-	print "<img src=\"/get2ch/css/Close_L.png\"                height=\"40\">";
-	print "<img src=\"/get2ch/css/Close_M.png\"  width=\"300\" height=\"40\">";
-	print "<img src=\"/get2ch/css/Close_C.png\"               height=\"40\">";
-	print "<img src=\"/get2ch/css/Close_M.png\"  width=\"300\" height=\"40\">";
-	print "<img src=\"/get2ch/css/Close_R.png\"                height=\"40\">";
+	print "<img src=\"/get2ch/css/Close_L.png\" class=\"buttom_L\">";
+	print "<img src=\"/get2ch/css/Close_M.png\" class=\"buttom_L\">";
+	print "<img src=\"/get2ch/css/Close_C.png\" class=\"buttom_L\">";
+	print "<img src=\"/get2ch/css/Close_M.png\" class=\"buttom_L\">";
+	print "<img src=\"/get2ch/css/Close_R.png\" class=\"buttom_L\">";
 	print "</a>\n";
 
 }

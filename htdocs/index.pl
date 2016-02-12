@@ -39,7 +39,7 @@ print $cgi->start_html(
 	-encoding => 'utf-8',
 	-style => {'src' => '/get2ch/css/style.css'},
 	-script => { -language => 'JavaScript', -type => 'JAVASCRIPT', -src  => '/get2ch/css/style.js'},
-	-meta=>{'viewport'=>'initial-scale=1'},
+	-meta=>{'viewport'=>'width=1200, initial-scale=1'},
 );
 
 print $cgi->start_form("post", "index.pl");
@@ -113,11 +113,11 @@ if($login_flag == 0) {
 	# ログイン済み
 	print $cgi->br . "\n";
 	print "<a href=\"index.pl\">";
-	print "<img src=\"/get2ch/css/Refresh_L.png\"                height=\"40\">";
-	print "<img src=\"/get2ch/css/Refresh_M.png\"  width=\"300\" height=\"40\">";
-	print "<img src=\"/get2ch/css/Refresh_C.png\"                height=\"40\">";
-	print "<img src=\"/get2ch/css/Refresh_M.png\"  width=\"300\" height=\"40\">";
-	print "<img src=\"/get2ch/css/Refresh_R.png\"                height=\"40\">";
+	print "<img src=\"/get2ch/css/Refresh_L.png\" class=\"buttom_L\">";
+	print "<img src=\"/get2ch/css/Refresh_M.png\" class=\"buttom_L\">";
+	print "<img src=\"/get2ch/css/Refresh_C.png\" class=\"buttom_L\">";
+	print "<img src=\"/get2ch/css/Refresh_M.png\" class=\"buttom_L\">";
+	print "<img src=\"/get2ch/css/Refresh_R.png\" class=\"buttom_L\">";
 	print "</a>\n";
 	print $cgi->br . "\n";
 	print $cgi->br . "\n";
