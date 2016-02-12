@@ -22,7 +22,7 @@ function resizeTableSize() {
 		tW3 = tW0 - 100 - 200;
 
 		// ボタンサイズの横幅を割り当てる
-		bW0 = 400;
+		bW0 = 200;
 
 		// 画面背景色を指定(#66ffcc)
 		stylesheet.insertRule("body { background-color: #66ffcc; }",         stylesheet.cssRules.length);
@@ -40,8 +40,8 @@ function resizeTableSize() {
 		tW3 = 700;
 
 		// ボタンサイズの横幅を割り当てる
-		bW0 = 400;
-		
+		bW0 = 200;
+
 		// 画面背景色を指定(#f8dce0)
 		stylesheet.insertRule("body { background-color: #f8dce0; }",         stylesheet.cssRules.length);
 	};

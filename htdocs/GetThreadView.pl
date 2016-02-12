@@ -76,10 +76,10 @@ if($ErrorFlag == 0) {
 
 	print "<a href=\"#\" onClick=\"window.close(); return false;\">";
 	print "<img src=\"/get2ch/css/Close_L.png\" class=\"buttom_L\">";
-	print "<img src=\"/get2ch/css/Close_M.png\" class=\"buttom_L\">";
-	print "<img src=\"/get2ch/css/Close_C.png\" class=\"buttom_L\">";
-	print "<img src=\"/get2ch/css/Close_M.png\" class=\"buttom_L\">";
-	print "<img src=\"/get2ch/css/Close_R.png\" class=\"buttom_L\">";
+	print "<img src=\"/get2ch/css/Close_M.png\" class=\"buttom_M\">";
+	print "<img src=\"/get2ch/css/Close_C.png\" class=\"buttom_C\">";
+	print "<img src=\"/get2ch/css/Close_M.png\" class=\"buttom_M\">";
+	print "<img src=\"/get2ch/css/Close_R.png\" class=\"buttom_R\">";
 	print "</a>\n";
 	print $cgi->br . "\n";
 	print $cgi->br . "\n";
@@ -110,10 +110,10 @@ if($ErrorFlag == 0) {
 	print $cgi->br . "\n";
 	print "<a href=\"#\" onClick=\"window.close(); return false;\">";
 	print "<img src=\"/get2ch/css/Close_L.png\" class=\"buttom_L\">";
-	print "<img src=\"/get2ch/css/Close_M.png\" class=\"buttom_L\">";
-	print "<img src=\"/get2ch/css/Close_C.png\" class=\"buttom_L\">";
-	print "<img src=\"/get2ch/css/Close_M.png\" class=\"buttom_L\">";
-	print "<img src=\"/get2ch/css/Close_R.png\" class=\"buttom_L\">";
+	print "<img src=\"/get2ch/css/Close_M.png\" class=\"buttom_M\">";
+	print "<img src=\"/get2ch/css/Close_C.png\" class=\"buttom_C\">";
+	print "<img src=\"/get2ch/css/Close_M.png\" class=\"buttom_M\">";
+	print "<img src=\"/get2ch/css/Close_R.png\" class=\"buttom_R\">";
 	print "</a>\n";
 
 }

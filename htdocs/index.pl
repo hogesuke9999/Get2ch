@@ -114,10 +114,10 @@ if($login_flag == 0) {
 	print $cgi->br . "\n";
 	print "<a href=\"index.pl\">";
 	print "<img src=\"/get2ch/css/Refresh_L.png\" class=\"buttom_L\">";
+	print "<img src=\"/get2ch/css/Refresh_M.png\" class=\"buttom_M\">";
+	print "<img src=\"/get2ch/css/Refresh_C.png\" class=\"buttom_C\">";
 	print "<img src=\"/get2ch/css/Refresh_M.png\" class=\"buttom_L\">";
-	print "<img src=\"/get2ch/css/Refresh_C.png\" class=\"buttom_L\">";
-	print "<img src=\"/get2ch/css/Refresh_M.png\" class=\"buttom_L\">";
-	print "<img src=\"/get2ch/css/Refresh_R.png\" class=\"buttom_L\">";
+	print "<img src=\"/get2ch/css/Refresh_R.png\" class=\"buttom_R\">";
 	print "</a>\n";
 	print $cgi->br . "\n";
 	print $cgi->br . "\n";
