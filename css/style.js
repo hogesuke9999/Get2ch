@@ -21,6 +21,9 @@ function resizeTableSize() {
 		// threadセルの横幅はIDセルの横幅(100px)とitaセルの横幅(200px)を除いた残りすべてを割り当てる
 		tW3 = tW0 - 100 - 200;
 
+		// ボタンサイズの横幅を割り当てる
+		bW0 = 400;
+
 		// 画面背景色を指定(#66ffcc)
 		stylesheet.insertRule("body { background-color: #66ffcc; }",         stylesheet.cssRules.length);
 	} else {
@@ -36,6 +39,9 @@ function resizeTableSize() {
 		// threadセルの横幅は700pxを割り当てる
 		tW3 = 700;
 
+		// ボタンサイズの横幅を割り当てる
+		bW0 = 400;
+		
 		// 画面背景色を指定(#f8dce0)
 		stylesheet.insertRule("body { background-color: #f8dce0; }",         stylesheet.cssRules.length);
 	};
@@ -48,8 +54,7 @@ function resizeTableSize() {
 	stylesheet.insertRule("th.thread { width: " + tW3 + "px; }",					stylesheet.cssRules.length);
 	stylesheet.insertRule("td.thread { width: " + tW3 + "px; }",					stylesheet.cssRules.length);
 	stylesheet.insertRule("div.textOverflow { width: " + tW3 + "px; }",	stylesheet.cssRules.length);
-
-//  console.log(tW0 + " / " + tW1 + " / " + tW2 + " / " + tW3);
+	stylesheet.insertRule("img.buttom_M { width: " + bW0 + "px; }",		stylesheet.cssRules.length);
 };
 
 var resizeTimer;

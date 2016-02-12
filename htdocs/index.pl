@@ -155,6 +155,7 @@ if($login_flag == 0) {
 		print "<td class=\"thread\"><div class=\"textOverflow\">" . $cgi->a({href=>$URL, target=>"_blank"}, $TABLE_title) . "</div></td>\n";
 		print "</tr>\n";
 
+# 既読フラグの設定
 		my $sql_w = "insert into checkflag (subjects_id, subjects_tag, users_id, flag, checkdate)
 			values('" . $TABLE_id . "', '" . $TABLE_board_name . "', '" . $user_id . "', '1', now());";
 		$db->do($sql_w);
@@ -165,11 +166,11 @@ if($login_flag == 0) {
 
 	print $cgi->br . "\n";
 	print "<a href=\"index.pl\">";
-	print "<img src=\"/get2ch/css/Refresh_L.png\"                height=\"40\">";
-	print "<img src=\"/get2ch/css/Refresh_M.png\"  width=\"300\" height=\"40\">";
-	print "<img src=\"/get2ch/css/Refresh_C.png\"                height=\"40\">";
-	print "<img src=\"/get2ch/css/Refresh_M.png\"  width=\"300\" height=\"40\">";
-	print "<img src=\"/get2ch/css/Refresh_R.png\"                height=\"40\">";
+	print "<img src=\"/get2ch/css/Refresh_L.png\" class=\"buttom_L\">";
+	print "<img src=\"/get2ch/css/Refresh_M.png\" class=\"buttom_M\">";
+	print "<img src=\"/get2ch/css/Refresh_C.png\" class=\"buttom_C\">";
+	print "<img src=\"/get2ch/css/Refresh_M.png\" class=\"buttom_M\">";
+	print "<img src=\"/get2ch/css/Refresh_R.png\" class=\"buttom_R\">";
 	print "</a>\n";
 }
 

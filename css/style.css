@@ -41,3 +41,23 @@ div.textOverflow {
 	text-overflow: ellipsis;
 	color:red;
 }
+
+img.buttom_L {
+	width: 300px;
+	height: 40px;
+}
+
+img.buttom_M {
+	width: 300px;
+	height: 40px;
+}
+
+img.buttom_C {
+	width: 300px;
+	height: 40px;
+}
+
+img.buttom_R {
+	width: 300px;
+	height: 40px;
+}
