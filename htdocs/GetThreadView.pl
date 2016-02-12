@@ -43,6 +43,15 @@ print $cgi->header( -type => 'text/html', -charset => 'utf-8');
 # start the HTML
 print $cgi->start_html(-title => '2ちゃんねる スレッド', -lang => 'ja', -encoding => 'utf-8');
 
+print $cgi->start_html(
+	-title => '2ちゃんねる スレッド',
+	-lang => 'ja',
+	-encoding => 'utf-8',
+	-style => {'src' => '/get2ch/css/style.css'},
+	-script => { -language => 'JavaScript', -type => 'JAVASCRIPT', -src  => '/get2ch/css/style.js'},
+	-meta=>{'viewport'=>'width=1200, initial-scale=1'},
+);
+
 my $PUT_id  = $cgi->param('id');
 if($PUT_id eq "") {
 	print "[Error]スレッドIDが指定されていません\n";
